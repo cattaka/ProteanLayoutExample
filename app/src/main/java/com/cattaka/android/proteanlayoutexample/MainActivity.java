@@ -1,7 +1,7 @@
 package com.cattaka.android.proteanlayoutexample;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -9,5 +9,16 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        if (getSupportFragmentManager().findFragmentById(R.id.frame_primary) == null) {
+            getSupportFragmentManager()
+                    .beginTransaction()
+                    .add(R.id.frame_primary, new CatListFragment(), null)
+                    .commit();
+        }
     }
 }

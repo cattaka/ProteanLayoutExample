@@ -1,35 +1,136 @@
-[
-{"name":"Akicchi",file:"Akicchi001.jpg"},
-{"name":"Aki",file:"Aki001.jpg"},
-{"name":"Ame",file:"Ame001.jpg"},
-{"name":"Bucchii",file:"Bucchii001.jpg"},
-{"name":"Buppii",file:"Buppii001.jpg"},
-{"name":"Chaa",file:"Chaa001.jpg"},
-{"name":"Chabuchi",file:"Chabuchi001.jpg"},
-{"name":"Chaka",file:"Chaka001.jpg"},
-{"name":"Chashima",file:"Chashima001.jpg"},
-{"name":"Chatran",file:"Chatran001.jpg"},
-{"name":"Chaware",file:"Chaware001.jpg"},
-{"name":"Curushima",file:"Curushima001.jpg"},
-{"name":"Hacchii",file:"Hacchii001.jpg"},
-{"name":"Harucchi",file:"Harucchi001.jpg"},
-{"name":"Hude",file:"Hude001.jpg"},
-{"name":"Jun",file:"Jun001.jpg"},
-{"name":"Kesshii",file:"Kesshii001.jpg"},
-{"name":"Kogeshima",file:"Kogeshima001.jpg"},
-{"name":"Kuro",file:"Kuro001.jpg"},
-{"name":"Kurobosu",file:"Kurobosu001.jpg"},
-{"name":"Kuroi",file:"Kuroi001.jpg"},
-{"name":"Kyupiin",file:"Kyupiin001.jpg"},
-{"name":"Madara",file:"Madara001.jpg"},
-{"name":"Mikerin",file:"Mikerin001.jpg"},
-{"name":"Murabuchi",file:"Murabuchi001.jpg"},
-{"name":"Murashima",file:"Murashima001.jpg"},
-{"name":"Nacchi",file:"Nacchi001.jpg"},
-{"name":"Odoshima.jpg",file:"Odoshima.jpg001.jpg"},
-{"name":"Oshinkoshin",file:"Oshinkoshin001.jpg"},
-{"name":"Sasshii",file:"Sasshii001.jpg"},
-{"name":"Shimabuchi",file:"Shimabuchi001.jpg"},
-{"name":"Shironaga",file:"Shironaga001.jpg"},
-{"name":"Usshi",file:"Usshi001.jpg"}
-]
+{
+  "items": [
+    {
+      "name": "Akicchi",
+      "file": "file:///android_asset/data/Akicchi001.jpg"
+    },
+    {
+      "name": "Aki",
+      "file": "file:///android_asset/data/Aki001.jpg"
+    },
+    {
+      "name": "Ame",
+      "file": "file:///android_asset/data/Ame001.jpg"
+    },
+    {
+      "name": "Bucchii",
+      "file": "file:///android_asset/data/Bucchii001.jpg"
+    },
+    {
+      "name": "Buppii",
+      "file": "file:///android_asset/data/Buppii001.jpg"
+    },
+    {
+      "name": "Chaa",
+      "file": "file:///android_asset/data/Chaa001.jpg"
+    },
+    {
+      "name": "Chabuchi",
+      "file": "file:///android_asset/data/Chabuchi001.jpg"
+    },
+    {
+      "name": "Chaka",
+      "file": "file:///android_asset/data/Chaka001.jpg"
+    },
+    {
+      "name": "Chashima",
+      "file": "file:///android_asset/data/Chashima001.jpg"
+    },
+    {
+      "name": "Chatran",
+      "file": "file:///android_asset/data/Chatran001.jpg"
+    },
+    {
+      "name": "Chaware",
+      "file": "file:///android_asset/data/Chaware001.jpg"
+    },
+    {
+      "name": "Curushima",
+      "file": "file:///android_asset/data/Curushima001.jpg"
+    },
+    {
+      "name": "Hacchii",
+      "file": "file:///android_asset/data/Hacchii001.jpg"
+    },
+    {
+      "name": "Harucchi",
+      "file": "file:///android_asset/data/Harucchi001.jpg"
+    },
+    {
+      "name": "Hude",
+      "file": "file:///android_asset/data/Hude001.jpg"
+    },
+    {
+      "name": "Jun",
+      "file": "file:///android_asset/data/Jun001.jpg"
+    },
+    {
+      "name": "Kesshii",
+      "file": "file:///android_asset/data/Kesshii001.jpg"
+    },
+    {
+      "name": "Kogeshima",
+      "file": "file:///android_asset/data/Kogeshima001.jpg"
+    },
+    {
+      "name": "Kuro",
+      "file": "file:///android_asset/data/Kuro001.jpg"
+    },
+    {
+      "name": "Kurobosu",
+      "file": "file:///android_asset/data/Kurobosu001.jpg"
+    },
+    {
+      "name": "Kuroi",
+      "file": "file:///android_asset/data/Kuroi001.jpg"
+    },
+    {
+      "name": "Kyupiin",
+      "file": "file:///android_asset/data/Kyupiin001.jpg"
+    },
+    {
+      "name": "Madara",
+      "file": "file:///android_asset/data/Madara001.jpg"
+    },
+    {
+      "name": "Mikerin",
+      "file": "file:///android_asset/data/Mikerin001.jpg"
+    },
+    {
+      "name": "Murabuchi",
+      "file": "file:///android_asset/data/Murabuchi001.jpg"
+    },
+    {
+      "name": "Murashima",
+      "file": "file:///android_asset/data/Murashima001.jpg"
+    },
+    {
+      "name": "Nacchi",
+      "file": "file:///android_asset/data/Nacchi001.jpg"
+    },
+    {
+      "name": "Odoshima.jpg",
+      "file": "file:///android_asset/data/Odoshima.jpg001.jpg"
+    },
+    {
+      "name": "Oshinkoshin",
+      "file": "file:///android_asset/data/Oshinkoshin001.jpg"
+    },
+    {
+      "name": "Sasshii",
+      "file": "file:///android_asset/data/Sasshii001.jpg"
+    },
+    {
+      "name": "Shimabuchi",
+      "file": "file:///android_asset/data/Shimabuchi001.jpg"
+    },
+    {
+      "name": "Shironaga",
+      "file": "file:///android_asset/data/Shironaga001.jpg"
+    },
+    {
+      "name": "Usshi",
+      "file": "file:///android_asset/data/Usshi001.jpg"
+    }
+  ]
+}
