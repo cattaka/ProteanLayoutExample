@@ -1,4 +1,4 @@
-package com.cattaka.android.proteanlayoutexample.utils;
+package net.cattaka.android.proteanlayoutexample.utils;
 
 import android.databinding.BindingAdapter;
 import android.widget.ImageView;

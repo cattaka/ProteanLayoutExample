@@ -1,4 +1,4 @@
-package com.cattaka.android.proteanlayoutexample.data;
+package net.cattaka.android.proteanlayoutexample.data;
 
 import java.util.List;
 

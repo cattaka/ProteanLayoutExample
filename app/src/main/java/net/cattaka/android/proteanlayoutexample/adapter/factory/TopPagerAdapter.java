@@ -1,11 +1,11 @@
-package com.cattaka.android.proteanlayoutexample.adapter.factory;
+package net.cattaka.android.proteanlayoutexample.adapter.factory;
 
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 
-import com.cattaka.android.proteanlayoutexample.fragment.CatGridFragment;
-import com.cattaka.android.proteanlayoutexample.fragment.CatListFragment;
+import net.cattaka.android.proteanlayoutexample.fragment.CatGridFragment;
+import net.cattaka.android.proteanlayoutexample.fragment.CatListFragment;
 
 import java.util.ArrayList;
 import java.util.List;

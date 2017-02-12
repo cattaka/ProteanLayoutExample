@@ -1,9 +1,11 @@
-package com.cattaka.android.proteanlayoutexample;
+package net.cattaka.android.proteanlayoutexample;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 
-import com.cattaka.android.proteanlayoutexample.fragment.TopPagerFragment;
+import net.cattaka.android.proteanlayoutexample.R;
+
+import net.cattaka.android.proteanlayoutexample.fragment.TopPagerFragment;
 
 public class MainActivity extends AppCompatActivity {
 

@@ -1,4 +1,4 @@
-package com.cattaka.android.proteanlayoutexample.data;
+package net.cattaka.android.proteanlayoutexample.data;
 
 /**
  * Created by cattaka on 17/02/12.

@@ -6,11 +6,11 @@
 
     <data>
 
-        <import type="com.cattaka.android.proteanlayoutexample.utils.DataBindingFunctions" />
+        <import type="net.cattaka.android.proteanlayoutexample.utils.DataBindingFunctions" />
 
         <variable
             name="item"
-            type="com.cattaka.android.proteanlayoutexample.data.CatEntry" />
+            type="net.cattaka.android.proteanlayoutexample.data.CatEntry" />
     </data>
 
     <LinearLayout

@@ -1,4 +1,4 @@
-package com.cattaka.android.proteanlayoutexample;
+package net.cattaka.android.proteanlayoutexample;
 
 import org.junit.Test;
 

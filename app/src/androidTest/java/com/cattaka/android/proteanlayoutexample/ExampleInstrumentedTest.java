@@ -1,4 +1,4 @@
-package com.cattaka.android.proteanlayoutexample;
+package net.cattaka.android.proteanlayoutexample;
 
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;
@@ -21,6 +21,6 @@ public class ExampleInstrumentedTest {
         // Context of the app under test.
         Context appContext = InstrumentationRegistry.getTargetContext();
 
-        assertEquals("com.cattaka.android.proteanlayoutexample", appContext.getPackageName());
+        assertEquals("net.cattaka.android.proteanlayoutexample", appContext.getPackageName());
     }
 }

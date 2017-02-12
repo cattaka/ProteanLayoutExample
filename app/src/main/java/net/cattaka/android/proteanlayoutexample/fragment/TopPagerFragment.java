@@ -1,4 +1,4 @@
-package com.cattaka.android.proteanlayoutexample.fragment;
+package net.cattaka.android.proteanlayoutexample.fragment;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -7,9 +7,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.cattaka.android.proteanlayoutexample.R;
-import com.cattaka.android.proteanlayoutexample.adapter.factory.TopPagerAdapter;
-import com.cattaka.android.proteanlayoutexample.databinding.FragmentTopPagerBinding;
+import net.cattaka.android.proteanlayoutexample.R;
+import net.cattaka.android.proteanlayoutexample.adapter.factory.TopPagerAdapter;
+import net.cattaka.android.proteanlayoutexample.databinding.FragmentTopPagerBinding;
 
 /**
  * Created by cattaka on 17/02/12.
