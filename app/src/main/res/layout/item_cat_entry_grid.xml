@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="com.cattaka.android.proteanlayoutexample.utils.DataBindingFunctions" />
+
+        <variable
+            name="item"
+            type="com.cattaka.android.proteanlayoutexample.data.CatEntry" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:orientation="vertical">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="160dp"
+            android:layout_margin="@dimen/spacing_x1"
+            android:adjustViewBounds="true"
+            android:elevation="2dp"
+            app:loadImageFit="@{item.file}"
+            tools:src="@mipmap/ic_launcher" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/spacing_x1"
+            android:layout_weight="1"
+            android:text="@{item.name}"
+            android:textAppearance="?android:textAppearanceMedium"
+            tools:text="Name"
+            />
+    </LinearLayout>
+</layout>

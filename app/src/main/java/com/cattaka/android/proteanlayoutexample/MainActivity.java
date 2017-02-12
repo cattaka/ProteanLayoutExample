@@ -3,6 +3,8 @@ package com.cattaka.android.proteanlayoutexample;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 
+import com.cattaka.android.proteanlayoutexample.fragment.TopPagerFragment;
+
 public class MainActivity extends AppCompatActivity {
 
     @Override
@@ -17,7 +19,7 @@ public class MainActivity extends AppCompatActivity {
         if (getSupportFragmentManager().findFragmentById(R.id.frame_primary) == null) {
             getSupportFragmentManager()
                     .beginTransaction()
-                    .add(R.id.frame_primary, new CatListFragment(), null)
+                    .add(R.id.frame_primary, new TopPagerFragment(), null)
                     .commit();
         }
     }

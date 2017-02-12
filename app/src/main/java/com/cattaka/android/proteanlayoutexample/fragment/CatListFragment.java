@@ -1,4 +1,4 @@
-package com.cattaka.android.proteanlayoutexample;
+package com.cattaka.android.proteanlayoutexample.fragment;
 
 import android.content.res.AssetManager;
 import android.os.Bundle;
@@ -11,7 +11,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.cattaka.android.proteanlayoutexample.adapter.factory.CatEntryViewHolderFactory;
+import com.cattaka.android.proteanlayoutexample.R;
+import com.cattaka.android.proteanlayoutexample.adapter.factory.CatEntryListViewHolderFactory;
 import com.cattaka.android.proteanlayoutexample.data.CatEntries;
 import com.cattaka.android.proteanlayoutexample.data.CatEntry;
 import com.cattaka.android.proteanlayoutexample.databinding.FragmentCatListBinding;
@@ -48,7 +49,7 @@ public class CatListFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
         mBinding = FragmentCatListBinding.bind(view);
 
-        mAdapter = new ScrambleAdapter<CatEntry>(getContext(), new ArrayList<CatEntry>(), mListenerRelay, new CatEntryViewHolderFactory());
+        mAdapter = new ScrambleAdapter<CatEntry>(getContext(), new ArrayList<CatEntry>(), mListenerRelay, new CatEntryListViewHolderFactory());
         mBinding.recycler.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false));
         mBinding.recycler.setAdapter(mAdapter);
     }
