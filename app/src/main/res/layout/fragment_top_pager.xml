@@ -5,16 +5,36 @@
 
     <data>
 
+        <variable
+            name="fragment"
+            type="net.cattaka.android.proteanlayoutexample.fragment.TopPagerFragment" />
+
+        <variable
+            name="scrollFactor"
+            type="float" />
     </data>
 
-    <LinearLayout
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:clipToPadding="false"
         android:orientation="vertical">
 
         <android.support.v4.view.ViewPager
             android:id="@+id/view_pager"
             android:layout_width="match_parent"
             android:layout_height="match_parent" />
-    </LinearLayout>
+
+        <android.support.design.widget.FloatingActionButton
+            android:id="@+id/button_search"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginBottom="@dimen/spacing_x4"
+            android:layout_marginEnd="@dimen/spacing_x4"
+            android:onClick="@{fragment.onClickSearch}"
+            android:src="@android:drawable/ic_menu_search"
+            android:translationY="@{(1f-scrollFactor) * (2*buttonSearch.getHeight())}" />
+    </RelativeLayout>
 </layout>
