@@ -5,6 +5,8 @@
 
     <data>
 
+        <import type="net.cattaka.android.proteanlayoutexample.utils.DataBindingFunctions" />
+
         <variable
             name="fragment"
             type="net.cattaka.android.proteanlayoutexample.fragment.TopPagerFragment" />
@@ -17,13 +19,45 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:clipChildren="false"
         android:clipToPadding="false"
         android:orientation="vertical">
+
+        <LinearLayout
+            android:id="@+id/layout_tab"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/tab_height"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@{DataBindingFunctions.evaluateColor(scrollFactor, @color/bgTabSelected, @color/bgTab)}"
+                android:elevation="@{(1f-scrollFactor) * @dimen/elevation_tab}"
+                android:gravity="center"
+                android:text="List"
+                android:textAppearance="?android:textAppearanceMedium"
+                android:textSize="@{(1f-scrollFactor) * @dimen/text_tab_large + scrollFactor * @dimen/text_tab_small}" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@{DataBindingFunctions.evaluateColor(scrollFactor, @color/bgTab, @color/bgTabSelected)}"
+                android:elevation="@{scrollFactor * @dimen/elevation_tab}"
+                android:gravity="center"
+                android:text="Grid"
+                android:textAppearance="?android:textAppearanceMedium"
+                android:textSize="@{(1f-scrollFactor) * @dimen/text_tab_small + scrollFactor * @dimen/text_tab_large}" />
+        </LinearLayout>
 
         <android.support.v4.view.ViewPager
             android:id="@+id/view_pager"
             android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+            android:layout_height="match_parent"
+            android:layout_below="@+id/layout_tab" />
 
         <android.support.design.widget.FloatingActionButton
             android:id="@+id/button_search"
