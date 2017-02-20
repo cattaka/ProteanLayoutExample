@@ -2,135 +2,262 @@
   "items": [
     {
       "name": "Akicchi",
-      "file": "file:///android_asset/data/Akicchi001.jpg"
+      "file": "file:///android_asset/data/Akicchi001.jpg",
+      "when": "2002年ごろ",
+      "where": "香川",
+      "hair": "長毛種",
+      "color": "チャシロ"
     },
     {
       "name": "Aki",
-      "file": "file:///android_asset/data/Aki001.jpg"
+      "file": "file:///android_asset/data/Aki001.jpg",
+      "when": "2009年ごろ",
+      "where": "香川",
+      "hair": "長毛種",
+      "color": "キジシロ"
     },
     {
       "name": "Ame",
-      "file": "file:///android_asset/data/Ame001.jpg"
+      "file": "file:///android_asset/data/Ame001.jpg",
+      "when": "2010年ごろ",
+      "where": "大阪の何処か",
+      "hair": "短毛種",
+      "color": "アメリカンショートヘアー"
     },
     {
       "name": "Bucchii",
-      "file": "file:///android_asset/data/Bucchii001.jpg"
+      "file": "file:///android_asset/data/Bucchii001.jpg",
+      "when": "2010年ごろ",
+      "where": "大阪の何処か",
+      "hair": "短毛種",
+      "color": "黒ブチ"
     },
     {
       "name": "Buppii",
-      "file": "file:///android_asset/data/Buppii001.jpg"
+      "file": "file:///android_asset/data/Buppii001.jpg",
+      "when": "2002年ごろ",
+      "where": "香川",
+      "hair": "短毛種",
+      "color": "キジトラ"
     },
     {
       "name": "Chaa",
-      "file": "file:///android_asset/data/Chaa001.jpg"
+      "file": "file:///android_asset/data/Chaa001.jpg",
+      "when": "2006年ごろ",
+      "where": "千丈寺湖",
+      "hair": "短毛種",
+      "color": "チャシロ"
     },
     {
       "name": "Chabuchi",
-      "file": "file:///android_asset/data/Chabuchi001.jpg"
+      "file": "file:///android_asset/data/Chabuchi001.jpg",
+      "when": "2008年ごろ",
+      "where": "京都の何処か",
+      "hair": "短毛種",
+      "color": "チャシロ"
     },
     {
       "name": "Chaka",
-      "file": "file:///android_asset/data/Chaka001.jpg"
+      "file": "file:///android_asset/data/Chaka001.jpg",
+      "when": "2015年ごろ",
+      "where": "目黒区",
+      "hair": "短毛種",
+      "color": "チャシロ"
     },
     {
       "name": "Chashima",
-      "file": "file:///android_asset/data/Chashima001.jpg"
+      "file": "file:///android_asset/data/Chashima001.jpg",
+      "when": "2017年ごろ",
+      "where": "目黒区",
+      "hair": "短毛種",
+      "color": "キジトラ"
     },
     {
       "name": "Chatran",
-      "file": "file:///android_asset/data/Chatran001.jpg"
+      "file": "file:///android_asset/data/Chatran001.jpg",
+      "when": "2013年ごろ",
+      "where": "大阪",
+      "hair": "短毛種",
+      "color": "チャトラ"
     },
     {
       "name": "Chaware",
-      "file": "file:///android_asset/data/Chaware001.jpg"
+      "file": "file:///android_asset/data/Chaware001.jpg",
+      "when": "2016年ごろ",
+      "where": "目黒区",
+      "hair": "短毛種",
+      "color": "キジシロ"
     },
     {
       "name": "Curushima",
-      "file": "file:///android_asset/data/Curushima001.jpg"
+      "file": "file:///android_asset/data/Curushima001.jpg",
+      "when": "2016年ごろ",
+      "where": "目黒区",
+      "hair": "短毛種",
+      "color": "キジトラ"
     },
     {
       "name": "Hacchii",
-      "file": "file:///android_asset/data/Hacchii001.jpg"
+      "file": "file:///android_asset/data/Hacchii001.jpg",
+      "when": "2016年ごろ",
+      "where": "目黒区",
+      "hair": "短毛種",
+      "color": "ハチワレ"
     },
     {
       "name": "Harucchi",
-      "file": "file:///android_asset/data/Harucchi001.jpg"
+      "file": "file:///android_asset/data/Harucchi001.jpg",
+      "when": "2002年ごろ",
+      "where": "香川",
+      "hair": "長毛種",
+      "color": "キジトラ"
     },
     {
       "name": "Hude",
-      "file": "file:///android_asset/data/Hude001.jpg"
+      "file": "file:///android_asset/data/Hude001.jpg",
+      "when": "2006年ごろ",
+      "where": "香川",
+      "hair": "短毛種",
+      "color": "キジトラ"
     },
     {
       "name": "Jun",
-      "file": "file:///android_asset/data/Jun001.jpg"
+      "file": "file:///android_asset/data/Jun001.jpg",
+      "when": "2006年ごろ",
+      "where": "香川",
+      "hair": "短毛種",
+      "color": "キジトラ"
     },
     {
       "name": "Kesshii",
-      "file": "file:///android_asset/data/Kesshii001.jpg"
+      "file": "file:///android_asset/data/Kesshii001.jpg",
+      "when": "2012年ごろ",
+      "where": "香川",
+      "hair": "短毛種",
+      "color": "キジトラ"
     },
     {
       "name": "Kogeshima",
-      "file": "file:///android_asset/data/Kogeshima001.jpg"
+      "file": "file:///android_asset/data/Kogeshima001.jpg",
+      "when": "2015年ごろ",
+      "where": "目黒区",
+      "hair": "短毛種",
+      "color": "サビトラ"
     },
     {
       "name": "Kuro",
-      "file": "file:///android_asset/data/Kuro001.jpg"
+      "file": "file:///android_asset/data/Kuro001.jpg",
+      "when": "2012年ごろ",
+      "where": "大阪",
+      "hair": "短毛種",
+      "color": "クロ"
     },
     {
       "name": "Kurobosu",
-      "file": "file:///android_asset/data/Kurobosu001.jpg"
+      "file": "file:///android_asset/data/Kurobosu001.jpg",
+      "when": "2006年ごろ",
+      "where": "千丈寺湖",
+      "hair": "短毛種",
+      "color": "クロ"
     },
     {
       "name": "Kuroi",
-      "file": "file:///android_asset/data/Kuroi001.jpg"
+      "file": "file:///android_asset/data/Kuroi001.jpg",
+      "when": "2016年ごろ",
+      "where": "目黒区",
+      "hair": "短毛種",
+      "color": "クロ"
     },
     {
       "name": "Kyupiin",
-      "file": "file:///android_asset/data/Kyupiin001.jpg"
+      "file": "file:///android_asset/data/Kyupiin001.jpg",
+      "when": "2006年ごろ",
+      "where": "大阪",
+      "hair": "短毛種",
+      "color": "チャトラ"
     },
     {
       "name": "Madara",
-      "file": "file:///android_asset/data/Madara001.jpg"
+      "file": "file:///android_asset/data/Madara001.jpg",
+      "when": "2010年ごろ",
+      "where": "大阪",
+      "hair": "短毛種",
+      "color": "グレートラ"
     },
     {
       "name": "Mikerin",
-      "file": "file:///android_asset/data/Mikerin001.jpg"
+      "file": "file:///android_asset/data/Mikerin001.jpg",
+      "when": "2016年ごろ",
+      "where": "目黒区",
+      "hair": "短毛種",
+      "color": "三毛"
     },
     {
       "name": "Murabuchi",
-      "file": "file:///android_asset/data/Murabuchi001.jpg"
+      "file": "file:///android_asset/data/Murabuchi001.jpg",
+      "when": "2016年ごろ",
+      "where": "目黒区",
+      "hair": "短毛種",
+      "color": "シャムブチ"
     },
     {
       "name": "Murashima",
-      "file": "file:///android_asset/data/Murashima001.jpg"
+      "file": "file:///android_asset/data/Murashima001.jpg",
+      "when": "2016年ごろ",
+      "where": "目黒区",
+      "hair": "短毛種",
+      "color": "ムラシマ"
     },
     {
       "name": "Nacchi",
-      "file": "file:///android_asset/data/Nacchi001.jpg"
+      "file": "file:///android_asset/data/Nacchi001.jpg",
+      "when": "2002年ごろ",
+      "where": "香川",
+      "hair": "短毛種",
+      "color": "シロ"
     },
     {
       "name": "Odoshima",
-      "file": "file:///android_asset/data/Odoshima001.jpg"
+      "file": "file:///android_asset/data/Odoshima001.jpg",
+      "when": "2016年ごろ",
+      "where": "目黒区",
+      "hair": "短毛種",
+      "color": "キジトラ"
     },
     {
       "name": "Oshinkoshin",
-      "file": "file:///android_asset/data/Oshinkoshin001.jpg"
+      "file": "file:///android_asset/data/Oshinkoshin001.jpg",
+      "where": "北海道オシンコシンの滝",
+      "hair": "短毛種",
+      "color": "チャトラ"
     },
     {
       "name": "Sasshii",
-      "file": "file:///android_asset/data/Sasshii001.jpg"
+      "file": "file:///android_asset/data/Sasshii001.jpg",
+      "where": "大阪",
+      "hair": "短毛種",
+      "color": "サバトラ"
     },
     {
       "name": "Shimabuchi",
-      "file": "file:///android_asset/data/Shimabuchi001.jpg"
+      "file": "file:///android_asset/data/Shimabuchi001.jpg",
+      "where": "大阪",
+      "hair": "短毛種",
+      "color": "キジシロ"
     },
     {
       "name": "Shironaga",
-      "file": "file:///android_asset/data/Shironaga001.jpg"
+      "file": "file:///android_asset/data/Shironaga001.jpg",
+      "where": "目黒区",
+      "hair": "長毛種",
+      "color": "シロ"
     },
     {
       "name": "Usshi",
-      "file": "file:///android_asset/data/Usshi001.jpg"
+      "file": "file:///android_asset/data/Usshi001.jpg",
+      "where": "大阪",
+      "hair": "短毛種",
+      "color": "クロシロ"
     }
   ]
 }
