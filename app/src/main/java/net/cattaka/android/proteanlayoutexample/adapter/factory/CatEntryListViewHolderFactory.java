@@ -6,11 +6,10 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
 
-import net.cattaka.android.proteanlayoutexample.data.CatEntry;
-import net.cattaka.android.proteanlayoutexample.databinding.ItemCatEntryListBinding;
-
 import net.cattaka.android.adaptertoolbox.adapter.ScrambleAdapter;
 import net.cattaka.android.adaptertoolbox.adapter.listener.ForwardingListener;
+import net.cattaka.android.proteanlayoutexample.data.CatEntry;
+import net.cattaka.android.proteanlayoutexample.databinding.ItemCatEntryListBinding;
 
 /**
  * Created by cattaka on 17/02/12.
@@ -21,7 +20,9 @@ public class CatEntryListViewHolderFactory extends ScrambleAdapter.AbsViewHolder
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ScrambleAdapter<?> adapter, @NonNull ViewGroup parent, @NonNull ForwardingListener<ScrambleAdapter<?>, RecyclerView.ViewHolder> forwardingListener) {
-        return new ViewHolder(ItemCatEntryListBinding.inflate(LayoutInflater.from(parent.getContext()), parent, false));
+        ViewHolder holder = new ViewHolder(ItemCatEntryListBinding.inflate(LayoutInflater.from(parent.getContext()), parent, false));
+        holder.itemView.setOnClickListener(forwardingListener);
+        return holder;
     }
 
     @Override

@@ -15,6 +15,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 import net.cattaka.android.adaptertoolbox.adapter.ScrambleAdapter;
 import net.cattaka.android.adaptertoolbox.adapter.listener.ListenerRelay;
+import net.cattaka.android.proteanlayoutexample.CatDetailActivity;
 import net.cattaka.android.proteanlayoutexample.R;
 import net.cattaka.android.proteanlayoutexample.adapter.factory.CatEntryListViewHolderFactory;
 import net.cattaka.android.proteanlayoutexample.data.CatEntries;
@@ -32,6 +33,10 @@ public class CatListFragment extends Fragment {
         @Override
         public void onClick(@NonNull RecyclerView recyclerView, @NonNull ScrambleAdapter<?> adapter, @NonNull RecyclerView.ViewHolder viewHolder, @NonNull View view) {
             super.onClick(recyclerView, adapter, viewHolder, view);
+            if (viewHolder instanceof CatEntryListViewHolderFactory.ViewHolder) {
+                CatEntry item = (CatEntry) mAdapter.getItemAt(viewHolder.getAdapterPosition());
+                showDetail(item);
+            }
         }
     };
 
@@ -71,5 +76,9 @@ public class CatListFragment extends Fragment {
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
+    }
+
+    private void showDetail(@NonNull CatEntry item) {
+        startActivity(CatDetailActivity.createIntent(getContext(), item));
     }
 }

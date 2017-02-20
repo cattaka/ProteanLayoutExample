@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="activity"
+            type="net.cattaka.android.proteanlayoutexample.CatDetailActivity" />
+
+        <variable
+            name="item"
+            type="net.cattaka.android.proteanlayoutexample.data.CatEntry" />
+    </data>
+
+    <RelativeLayout
+        android:id="@+id/activity_main"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context="net.cattaka.android.proteanlayoutexample.CatDetailActivity">
+
+        <include
+            layout="@layout/activity_cat_detail_scroll"
+            app:actvity="@{activity}"
+            app:item="@{item}" />
+    </RelativeLayout>
+</layout>

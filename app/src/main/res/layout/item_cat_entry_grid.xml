@@ -25,7 +25,8 @@
             android:layout_margin="@dimen/spacing_x1"
             android:adjustViewBounds="true"
             android:elevation="2dp"
-            app:loadImageFit="@{item.file}"
+            app:loadImage="@{item.file}"
+            app:useFit="@{true}"
             tools:src="@mipmap/ic_launcher" />
 
         <TextView

@@ -1,10 +1,11 @@
 package net.cattaka.android.proteanlayoutexample.data;
 
+import java.io.Serializable;
+
 /**
  * Created by cattaka on 17/02/12.
  */
-
-public class CatEntry {
+public class CatEntry implements Serializable {
     private String name;
     private String file;
     private String when;

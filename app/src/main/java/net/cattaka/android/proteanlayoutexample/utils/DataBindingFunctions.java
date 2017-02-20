@@ -14,14 +14,18 @@ import com.squareup.picasso.Picasso;
 public class DataBindingFunctions {
     private static ArgbEvaluator mArgbEvaluator;
 
-    @BindingAdapter("loadImageFit")
-    public static void loadImage(ImageView view, String url) {
+    @BindingAdapter({"loadImage", "useFit"})
+    public static void loadImage(ImageView view, String url, boolean useFit) {
         Picasso picasso = Picasso.with(view.getContext());
         if (url == null || url.length() == 0) {
             view.setImageDrawable(null);
             picasso.cancelRequest(view);
         } else {
-            picasso.load(url).fit().into(view);
+            if (useFit) {
+                picasso.load(url).fit().into(view);
+            } else {
+                picasso.load(url).into(view);
+            }
         }
     }
 

@@ -12,15 +12,16 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
+
+import net.cattaka.android.adaptertoolbox.adapter.ScrambleAdapter;
+import net.cattaka.android.adaptertoolbox.adapter.listener.ListenerRelay;
+import net.cattaka.android.proteanlayoutexample.CatDetailActivity;
 import net.cattaka.android.proteanlayoutexample.R;
 import net.cattaka.android.proteanlayoutexample.adapter.factory.CatEntryGridViewHolderFactory;
 import net.cattaka.android.proteanlayoutexample.data.CatEntries;
 import net.cattaka.android.proteanlayoutexample.data.CatEntry;
 import net.cattaka.android.proteanlayoutexample.databinding.FragmentCatGridBinding;
-import com.fasterxml.jackson.databind.ObjectMapper;
-
-import net.cattaka.android.adaptertoolbox.adapter.ScrambleAdapter;
-import net.cattaka.android.adaptertoolbox.adapter.listener.ListenerRelay;
 
 import java.util.ArrayList;
 
@@ -33,6 +34,10 @@ public class CatGridFragment extends Fragment {
         @Override
         public void onClick(@NonNull RecyclerView recyclerView, @NonNull ScrambleAdapter<?> adapter, @NonNull RecyclerView.ViewHolder viewHolder, @NonNull View view) {
             super.onClick(recyclerView, adapter, viewHolder, view);
+            if (viewHolder instanceof CatEntryGridViewHolderFactory.ViewHolder) {
+                CatEntry item = (CatEntry) mAdapter.getItemAt(viewHolder.getAdapterPosition());
+                showDetail(item);
+            }
         }
     };
 
@@ -72,5 +77,9 @@ public class CatGridFragment extends Fragment {
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
+    }
+
+    private void showDetail(@NonNull CatEntry item) {
+        startActivity(CatDetailActivity.createIntent(getContext(), item));
     }
 }

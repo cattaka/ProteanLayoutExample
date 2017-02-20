@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="net.cattaka.android.proteanlayoutexample.utils.DataBindingFunctions" />
+
+        <variable
+            name="actvity"
+            type="net.cattaka.android.proteanlayoutexample.CatDetailActivity" />
+
+        <variable
+            name="item"
+            type="net.cattaka.android.proteanlayoutexample.data.CatEntry" />
+    </data>
+
+    <ScrollView
+        android:id="@+id/activity_main"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:adjustViewBounds="true"
+                app:loadImage="@{item.file}"
+                app:useFit="@{false}"
+                tools:src="@mipmap/ic_launcher" />
+
+            <TextView
+                style="@style/TextLabel"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="When"
+                android:textAppearance="?android:textAppearanceMedium" />
+
+            <TextView
+                style="@style/TextValue"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@{item.when}"
+                tools:text="2002年ごろ" />
+
+            <TextView
+                style="@style/TextLabel"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Where"
+                android:textAppearance="?android:textAppearanceMedium" />
+
+            <TextView
+                style="@style/TextValue"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@{item.where}"
+                tools:text="香川" />
+
+            <TextView
+                style="@style/TextLabel"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Hair"
+                android:textAppearance="?android:textAppearanceMedium" />
+
+            <TextView
+                style="@style/TextValue"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@{item.hair}"
+                tools:text="長毛種" />
+
+            <TextView
+                style="@style/TextLabel"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Color"
+                android:textAppearance="?android:textAppearanceMedium" />
+
+            <TextView
+                style="@style/TextValue"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@{item.color}"
+                tools:text="チャシロ" />
+        </LinearLayout>
+    </ScrollView>
+</layout>

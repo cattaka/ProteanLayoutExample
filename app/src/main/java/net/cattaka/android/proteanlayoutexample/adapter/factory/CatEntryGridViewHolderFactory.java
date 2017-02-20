@@ -21,7 +21,9 @@ public class CatEntryGridViewHolderFactory extends ScrambleAdapter.AbsViewHolder
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ScrambleAdapter<?> adapter, @NonNull ViewGroup parent, @NonNull ForwardingListener<ScrambleAdapter<?>, RecyclerView.ViewHolder> forwardingListener) {
-        return new ViewHolder(ItemCatEntryGridBinding.inflate(LayoutInflater.from(parent.getContext()), parent, false));
+        ViewHolder holder = new ViewHolder(ItemCatEntryGridBinding.inflate(LayoutInflater.from(parent.getContext()), parent, false));
+        holder.itemView.setOnClickListener(forwardingListener);
+        return holder;
     }
 
     @Override
