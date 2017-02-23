@@ -11,6 +11,7 @@ import net.cattaka.android.proteanlayoutexample.data.CatEntry;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 /**
@@ -58,5 +59,16 @@ public class Repository {
             }
         }
         return results;
+    }
+
+    public static List<CatEntry> removeByName(List<CatEntry> inOut, String name) {
+        for (Iterator<CatEntry> itr = inOut.iterator(); itr.hasNext(); ) {
+            CatEntry item = itr.next();
+            if ((name == null && item.getName() == null)
+                    || (name != null && name.equals(item.getName()))) {
+                itr.remove();
+            }
+        }
+        return inOut;
     }
 }

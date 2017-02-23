@@ -16,6 +16,8 @@ import net.cattaka.android.proteanlayoutexample.data.CatEntry;
 import net.cattaka.android.proteanlayoutexample.databinding.ActivityCatDetailBinding;
 import net.cattaka.android.proteanlayoutexample.repo.Repository;
 
+import java.util.List;
+
 /**
  * Created by cattaka on 17/02/12.
  */
@@ -42,9 +44,17 @@ public class CatDetailActivity extends AppCompatActivity {
         mBinding.setActivity(this);
         mBinding.setItem(mItem);
 
-        mBinding.layoutContents.recyclerColor.setLayoutManager(new GridLayoutManager(this, 2, LinearLayoutManager.VERTICAL, false));
-        mBinding.layoutContents.recyclerColor.setAdapter(new ScrambleAdapter<>(this, mRepository.findByColor(mItem.getColor()), null, new CatEntrySmallCardViewHolderFactory()));
-        mBinding.layoutContents.recyclerHair.setLayoutManager(new GridLayoutManager(this, 2, LinearLayoutManager.VERTICAL, false));
-        mBinding.layoutContents.recyclerHair.setAdapter(new ScrambleAdapter<>(this, mRepository.findByHair(mItem.getHair()), null, new CatEntrySmallCardViewHolderFactory()));
+        {
+            List<CatEntry> items = Repository.removeByName(mRepository.findByColor(mItem.getColor()), mItem.getName());
+            ScrambleAdapter<CatEntry> adapter = new ScrambleAdapter<>(this, items, null, new CatEntrySmallCardViewHolderFactory());
+            mBinding.layoutContents.recyclerColor.setLayoutManager(new GridLayoutManager(this, 2, LinearLayoutManager.VERTICAL, false));
+            mBinding.layoutContents.recyclerColor.setAdapter(adapter);
+        }
+        {
+            List<CatEntry> items = Repository.removeByName(mRepository.findByHair(mItem.getHair()), mItem.getName());
+            ScrambleAdapter<CatEntry> adapter = new ScrambleAdapter<>(this, items, null, new CatEntrySmallCardViewHolderFactory());
+            mBinding.layoutContents.recyclerHair.setLayoutManager(new GridLayoutManager(this, 2, LinearLayoutManager.VERTICAL, false));
+            mBinding.layoutContents.recyclerHair.setAdapter(adapter);
+        }
     }
 }
