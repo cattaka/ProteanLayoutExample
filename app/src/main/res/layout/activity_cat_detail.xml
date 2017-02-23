@@ -22,6 +22,7 @@
         tools:context="net.cattaka.android.proteanlayoutexample.CatDetailActivity">
 
         <include
+            android:id="@+id/layout_contents"
             layout="@layout/activity_cat_detail_scroll"
             app:actvity="@{activity}"
             app:item="@{item}" />

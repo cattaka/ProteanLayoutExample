@@ -90,6 +90,33 @@
                 android:layout_height="wrap_content"
                 android:text="@{item.color}"
                 tools:text="チャシロ" />
+
+            <TextView
+                style="@style/TextLabel"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Same color"
+                android:textAppearance="?android:textAppearanceMedium" />
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/recycler_color"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:nestedScrollingEnabled="false" />
+
+            <TextView
+                style="@style/TextLabel"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Same hair"
+                android:textAppearance="?android:textAppearanceMedium" />
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/recycler_hair"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:nestedScrollingEnabled="false" />
+
         </LinearLayout>
     </ScrollView>
 </layout>

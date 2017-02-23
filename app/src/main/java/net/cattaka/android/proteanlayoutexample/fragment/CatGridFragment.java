@@ -1,6 +1,6 @@
 package net.cattaka.android.proteanlayoutexample.fragment;
 
-import android.content.res.AssetManager;
+import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -12,16 +12,14 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
-
 import net.cattaka.android.adaptertoolbox.adapter.ScrambleAdapter;
 import net.cattaka.android.adaptertoolbox.adapter.listener.ListenerRelay;
 import net.cattaka.android.proteanlayoutexample.CatDetailActivity;
 import net.cattaka.android.proteanlayoutexample.R;
 import net.cattaka.android.proteanlayoutexample.adapter.factory.CatEntryGridViewHolderFactory;
-import net.cattaka.android.proteanlayoutexample.data.CatEntries;
 import net.cattaka.android.proteanlayoutexample.data.CatEntry;
 import net.cattaka.android.proteanlayoutexample.databinding.FragmentCatGridBinding;
+import net.cattaka.android.proteanlayoutexample.repo.Repository;
 
 import java.util.ArrayList;
 
@@ -43,6 +41,13 @@ public class CatGridFragment extends Fragment {
 
     FragmentCatGridBinding mBinding;
     ScrambleAdapter<CatEntry> mAdapter;
+    Repository mRepository;
+
+    @Override
+    public void onAttach(Context context) {
+        super.onAttach(context);
+        mRepository = new Repository(context);
+    }
 
     @Nullable
     @Override
@@ -68,11 +73,8 @@ public class CatGridFragment extends Fragment {
 
     private void loadData() {
         try {
-            AssetManager assetManager = getContext().getAssets();
-            ObjectMapper objectMapper = new ObjectMapper();
-            CatEntries catEntries = objectMapper.readValue(assetManager.open("data/data.json"), CatEntries.class);
             mAdapter.getItems().clear();
-            mAdapter.getItems().addAll(catEntries.getItems());
+            mAdapter.getItems().addAll(mRepository.loadCatEntries());
             mAdapter.notifyDataSetChanged();
         } catch (Exception e) {
             throw new RuntimeException(e);
