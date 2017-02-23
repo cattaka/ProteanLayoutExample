@@ -11,7 +11,7 @@ import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 
 import net.cattaka.android.adaptertoolbox.adapter.ScrambleAdapter;
-import net.cattaka.android.proteanlayoutexample.adapter.factory.CatEntryGridViewHolderFactory;
+import net.cattaka.android.proteanlayoutexample.adapter.factory.CatEntrySmallCardViewHolderFactory;
 import net.cattaka.android.proteanlayoutexample.data.CatEntry;
 import net.cattaka.android.proteanlayoutexample.databinding.ActivityCatDetailBinding;
 import net.cattaka.android.proteanlayoutexample.repo.Repository;
@@ -43,8 +43,8 @@ public class CatDetailActivity extends AppCompatActivity {
         mBinding.setItem(mItem);
 
         mBinding.layoutContents.recyclerColor.setLayoutManager(new GridLayoutManager(this, 2, LinearLayoutManager.VERTICAL, false));
-        mBinding.layoutContents.recyclerColor.setAdapter(new ScrambleAdapter<>(this, mRepository.findByColor(mItem.getColor()), null, new CatEntryGridViewHolderFactory()));
+        mBinding.layoutContents.recyclerColor.setAdapter(new ScrambleAdapter<>(this, mRepository.findByColor(mItem.getColor()), null, new CatEntrySmallCardViewHolderFactory()));
         mBinding.layoutContents.recyclerHair.setLayoutManager(new GridLayoutManager(this, 2, LinearLayoutManager.VERTICAL, false));
-        mBinding.layoutContents.recyclerHair.setAdapter(new ScrambleAdapter<>(this, mRepository.findByHair(mItem.getHair()), null, new CatEntryGridViewHolderFactory()));
+        mBinding.layoutContents.recyclerHair.setAdapter(new ScrambleAdapter<>(this, mRepository.findByHair(mItem.getHair()), null, new CatEntrySmallCardViewHolderFactory()));
     }
 }
