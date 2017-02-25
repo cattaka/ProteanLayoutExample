@@ -10,6 +10,7 @@ import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.support.v4.widget.NestedScrollView;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.graphics.Palette;
 import android.support.v7.widget.GridLayoutManager;
@@ -59,33 +60,54 @@ public class CatDetailActivity extends AppCompatActivity {
         @Override
         public void onGenerated(Palette palette) {
             Palette.Swatch swatch = palette.getVibrantSwatch();
-            Window window = getWindow();
-            if (window != null && swatch != null) {
-                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-                    window.setStatusBarColor(swatch.getRgb());
-                }
+            if (swatch != null) {
+                mVibrantColor = swatch.getRgb();
             }
+        }
+    };
+
+    NestedScrollView.OnScrollChangeListener mOnScrollChangeListener = new NestedScrollView.OnScrollChangeListener() {
+        @Override
+        public void onScrollChange(NestedScrollView v, int scrollX, int scrollY, int oldScrollX, int oldScrollY) {
+            float factor = (float) scrollY / (float) mBinding.layoutContents.image.getHeight();
+            if (factor < 0f) {
+                factor = 0f;
+            } else if (factor > 1f) {
+                factor = 1f;
+            }
+            int color = DataBindingFunctions.evaluateColor(factor, mOriginalStatusBarColor, mVibrantColor);
+            setStatusBarColor(color);
+
+            mBinding.setScrollFactor(factor);
         }
     };
 
     ActivityCatDetailBinding mBinding;
     Repository mRepository;
 
+    int mOriginalStatusBarColor;
+    int mVibrantColor;
     CatEntry mItem;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-            getWindow().clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
-            getWindow().addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
+            Window window = getWindow();
+            window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
+            window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
+            // window.getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN);
         }
+        mOriginalStatusBarColor = getResources().getColor(R.color.statusBarDetail);
+        setStatusBarColor(mOriginalStatusBarColor);
 
         mRepository = new Repository(this);
         mBinding = DataBindingUtil.setContentView(this, R.layout.activity_cat_detail);
         mItem = (CatEntry) getIntent().getSerializableExtra("item");
         mBinding.setActivity(this);
         mBinding.setItem(mItem);
+
+        mBinding.layoutContents.scroll.setOnScrollChangeListener(mOnScrollChangeListener);
 
         {
             List<CatEntry> items = Repository.removeByName(mRepository.findByColor(mItem.getColor()), mItem.getName());
@@ -101,6 +123,12 @@ public class CatDetailActivity extends AppCompatActivity {
         }
     }
 
+    private void setStatusBarColor(int color) {
+        Window window = getWindow();
+        if (window != null && Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            window.setStatusBarColor(color);
+        }
+    }
 
     public DataBindingFunctions.ILoadImageListener getLoadImageListener() {
         return mLoadImageListener;

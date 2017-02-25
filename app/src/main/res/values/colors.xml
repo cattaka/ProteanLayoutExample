@@ -6,4 +6,6 @@
 
     <color name="bgTab">#AFAFAF</color>
     <color name="bgTabSelected">#CFCFCF</color>
+
+    <color name="statusBarDetail">#7f3f3f3f</color>
 </resources>
