@@ -3,9 +3,12 @@ package net.cattaka.android.proteanlayoutexample.utils;
 import android.animation.ArgbEvaluator;
 import android.databinding.BindingAdapter;
 import android.support.annotation.ColorInt;
+import android.support.annotation.NonNull;
 import android.widget.ImageView;
 
+import com.squareup.picasso.Callback;
 import com.squareup.picasso.Picasso;
+import com.squareup.picasso.RequestCreator;
 
 /**
  * Created by cattaka on 17/02/12.
@@ -14,18 +17,32 @@ import com.squareup.picasso.Picasso;
 public class DataBindingFunctions {
     private static ArgbEvaluator mArgbEvaluator;
 
-    @BindingAdapter({"loadImage", "useFit"})
-    public static void loadImage(ImageView view, String url, boolean useFit) {
+    @BindingAdapter(value = {"loadImage", "useFit", "loadImageListener"}, requireAll = false)
+    public static void loadImage(final ImageView view, String url, boolean useFit, final ILoadImageListener listener) {
         Picasso picasso = Picasso.with(view.getContext());
         if (url == null || url.length() == 0) {
             view.setImageDrawable(null);
             picasso.cancelRequest(view);
         } else {
-            if (useFit) {
-                picasso.load(url).fit().into(view);
-            } else {
-                picasso.load(url).into(view);
+            Callback callback = null;
+            if (listener != null) {
+                callback = new Callback() {
+                    @Override
+                    public void onSuccess() {
+                        listener.onSuccess(view);
+                    }
+
+                    @Override
+                    public void onError() {
+                        listener.onError(view);
+                    }
+                };
             }
+            RequestCreator requestCreator = picasso.load(url);
+            if (useFit) {
+                requestCreator = requestCreator.fit();
+            }
+            requestCreator.into(view, callback);
         }
     }
 
@@ -45,5 +62,11 @@ public class DataBindingFunctions {
         } else {
             return (Integer) mArgbEvaluator.evaluate((fraction - 0.5f) * 2, centerValue, endValue);
         }
+    }
+
+    public interface ILoadImageListener {
+        void onSuccess(@NonNull ImageView imageView);
+
+        void onError(@NonNull ImageView imageView);
     }
 }

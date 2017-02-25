@@ -24,7 +24,7 @@
         <include
             android:id="@+id/layout_contents"
             layout="@layout/activity_cat_detail_scroll"
-            app:actvity="@{activity}"
+            app:activity="@{activity}"
             app:item="@{item}" />
     </RelativeLayout>
 </layout>

@@ -9,7 +9,7 @@
         <import type="net.cattaka.android.proteanlayoutexample.utils.DataBindingFunctions" />
 
         <variable
-            name="actvity"
+            name="activity"
             type="net.cattaka.android.proteanlayoutexample.CatDetailActivity" />
 
         <variable
@@ -32,6 +32,7 @@
                 android:layout_height="wrap_content"
                 android:adjustViewBounds="true"
                 app:loadImage="@{item.file}"
+                app:loadImageListener="@{activity.loadImageListener}"
                 app:useFit="@{false}"
                 tools:src="@mipmap/ic_launcher" />
 
