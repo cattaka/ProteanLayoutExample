@@ -6,12 +6,16 @@ import android.databinding.DataBindingUtil;
 import android.graphics.Bitmap;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.graphics.Palette;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.ImageView;
 
 import net.cattaka.android.adaptertoolbox.adapter.ScrambleAdapter;
@@ -41,13 +45,26 @@ public class CatDetailActivity extends AppCompatActivity {
             BitmapDrawable bitmapDrawable = (drawable instanceof BitmapDrawable) ? (BitmapDrawable) drawable : null;
             Bitmap bitmap = (bitmapDrawable != null) ? bitmapDrawable.getBitmap() : null;
             if (bitmap != null) {
-                // TODO
+                Palette.from(bitmap).generate(mPaletteAsyncListener);
             }
         }
 
         @Override
         public void onError(@NonNull ImageView imageView) {
             // ignore
+        }
+    };
+
+    Palette.PaletteAsyncListener mPaletteAsyncListener = new Palette.PaletteAsyncListener() {
+        @Override
+        public void onGenerated(Palette palette) {
+            Palette.Swatch swatch = palette.getVibrantSwatch();
+            Window window = getWindow();
+            if (window != null && swatch != null) {
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                    window.setStatusBarColor(swatch.getRgb());
+                }
+            }
         }
     };
 
@@ -59,6 +76,11 @@ public class CatDetailActivity extends AppCompatActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            getWindow().clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
+            getWindow().addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
+        }
+
         mRepository = new Repository(this);
         mBinding = DataBindingUtil.setContentView(this, R.layout.activity_cat_detail);
         mItem = (CatEntry) getIntent().getSerializableExtra("item");
