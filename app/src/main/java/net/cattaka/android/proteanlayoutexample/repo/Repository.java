@@ -6,29 +6,42 @@ import android.support.annotation.NonNull;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 
+import net.cattaka.android.proteanlayoutexample.data.AggregatedEntry;
 import net.cattaka.android.proteanlayoutexample.data.CatEntries;
 import net.cattaka.android.proteanlayoutexample.data.CatEntry;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Map;
+import java.util.TreeMap;
 
 /**
  * Created by cattaka on 17/02/23.
  */
 
 public class Repository {
-    private Context mContext;
+    private static Repository mRepository;
+    private List<CatEntry> mCatEntries;
 
-    public Repository(@NonNull Context context) {
-        mContext = context;
+    Repository() {
+    }
+
+    public static synchronized Repository getInstance(Context context) {
+        // このサンプルアプリの本題ではないので雑な実装
+        if (mRepository == null) {
+            mRepository = new Repository();
+            mRepository.mCatEntries = Collections.unmodifiableList(loadCatEntries(context));
+        }
+        return mRepository;
     }
 
     @NonNull
-    public List<CatEntry> loadCatEntries() {
+    private static List<CatEntry> loadCatEntries(Context context) {
         try {
-            AssetManager assetManager = mContext.getAssets();
+            AssetManager assetManager = context.getAssets();
             ObjectMapper objectMapper = new ObjectMapper();
             CatEntries catEntries = objectMapper.readValue(assetManager.open("data/data.json"), CatEntries.class);
             return catEntries.getItems();
@@ -39,8 +52,7 @@ public class Repository {
 
     public List<CatEntry> findByColor(String color) {
         List<CatEntry> results = new ArrayList<>();
-        List<CatEntry> items = loadCatEntries();
-        for (CatEntry item : items) {
+        for (CatEntry item : mCatEntries) {
             if ((color == null && item.getColor() == null)
                     || (color != null && color.equals(item.getColor()))) {
                 results.add(item);
@@ -51,8 +63,7 @@ public class Repository {
 
     public List<CatEntry> findByHair(String hair) {
         List<CatEntry> results = new ArrayList<>();
-        List<CatEntry> items = loadCatEntries();
-        for (CatEntry item : items) {
+        for (CatEntry item : mCatEntries) {
             if ((hair == null && item.getHair() == null)
                     || (hair != null && hair.equals(item.getHair()))) {
                 results.add(item);
@@ -70,5 +81,26 @@ public class Repository {
             }
         }
         return inOut;
+    }
+
+    public List<CatEntry> getCatEntries() {
+        return mCatEntries;
+    }
+
+    public List<AggregatedEntry> aggregateByColor() {
+        Map<String, Integer> values = new TreeMap<>();
+        for (CatEntry item : mCatEntries) {
+            String key = item.getColor();
+            Integer value = values.get(item.getColor());
+            if (value == null) {
+                value = 0;
+            }
+            values.put(key, value + 1);
+        }
+        List<AggregatedEntry> results = new ArrayList<>();
+        for (Map.Entry<String, Integer> entry : values.entrySet()) {
+            results.add(new AggregatedEntry(entry.getKey(), entry.getValue()));
+        }
+        return results;
     }
 }

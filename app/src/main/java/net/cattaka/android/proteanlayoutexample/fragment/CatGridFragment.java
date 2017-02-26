@@ -46,7 +46,7 @@ public class CatGridFragment extends Fragment {
     @Override
     public void onAttach(Context context) {
         super.onAttach(context);
-        mRepository = new Repository(context);
+        mRepository = Repository.getInstance(context);
     }
 
     @Nullable
@@ -74,7 +74,7 @@ public class CatGridFragment extends Fragment {
     private void loadData() {
         try {
             mAdapter.getItems().clear();
-            mAdapter.getItems().addAll(mRepository.loadCatEntries());
+            mAdapter.getItems().addAll(mRepository.getCatEntries());
             mAdapter.notifyDataSetChanged();
         } catch (Exception e) {
             throw new RuntimeException(e);

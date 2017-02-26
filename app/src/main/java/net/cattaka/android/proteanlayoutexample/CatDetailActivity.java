@@ -101,7 +101,7 @@ public class CatDetailActivity extends AppCompatActivity {
         mOriginalStatusBarColor = getResources().getColor(R.color.statusBarDetail);
         setStatusBarColor(mOriginalStatusBarColor);
 
-        mRepository = new Repository(this);
+        mRepository = Repository.getInstance(this);
         mBinding = DataBindingUtil.setContentView(this, R.layout.activity_cat_detail);
         mItem = (CatEntry) getIntent().getSerializableExtra("item");
         mBinding.setActivity(this);
