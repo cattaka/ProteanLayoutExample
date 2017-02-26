@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    </data>
+
+    <android.support.v4.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                style="@style/TextLabel"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="毛色"
+                android:textAppearance="?android:textAppearanceMedium" />
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/recycler_color"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:nestedScrollingEnabled="false"
+                android:padding="@dimen/spacing_x1"
+                tools:listitem="@layout/item_aggregated_entry" />
+
+            <TextView
+                style="@style/TextLabel"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="毛長"
+                android:textAppearance="?android:textAppearanceMedium" />
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/recycler_hair"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:nestedScrollingEnabled="false"
+                android:padding="@dimen/spacing_x1"
+                tools:listitem="@layout/item_aggregated_entry" />
+        </LinearLayout>
+    </android.support.v4.widget.NestedScrollView>
+</layout>

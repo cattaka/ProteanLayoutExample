@@ -91,7 +91,24 @@ public class Repository {
         Map<String, Integer> values = new TreeMap<>();
         for (CatEntry item : mCatEntries) {
             String key = item.getColor();
-            Integer value = values.get(item.getColor());
+            Integer value = values.get(key);
+            if (value == null) {
+                value = 0;
+            }
+            values.put(key, value + 1);
+        }
+        List<AggregatedEntry> results = new ArrayList<>();
+        for (Map.Entry<String, Integer> entry : values.entrySet()) {
+            results.add(new AggregatedEntry(entry.getKey(), entry.getValue()));
+        }
+        return results;
+    }
+
+    public List<AggregatedEntry> aggregateByHair() {
+        Map<String, Integer> values = new TreeMap<>();
+        for (CatEntry item : mCatEntries) {
+            String key = item.getHair();
+            Integer value = values.get(key);
             if (value == null) {
                 value = 0;
             }
