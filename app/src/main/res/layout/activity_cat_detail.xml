@@ -2,9 +2,14 @@
 <layout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools">
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="net.cattaka.android.proteanlayoutexample.CatDetailActivity">
 
     <data>
+
+        <import type="net.cattaka.android.proteanlayoutexample.utils.DataBindingFunctions" />
+
+        <import type="net.cattaka.android.proteanlayoutexample.utils.CircleTransform" />
 
         <variable
             name="activity"
@@ -17,19 +22,67 @@
         <variable
             name="scrollFactor"
             type="float" />
+
+        <variable
+            name="originalStatusBarColor"
+            type="int" />
+
+        <variable
+            name="vibrantColor"
+            type="int" />
     </data>
 
     <RelativeLayout
         android:id="@+id/activity_main"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        tools:context="net.cattaka.android.proteanlayoutexample.CatDetailActivity">
+        android:layout_height="match_parent">
 
         <include
             android:id="@+id/layout_contents"
             layout="@layout/activity_cat_detail_scroll"
             app:activity="@{activity}"
             app:item="@{item}"
-            app:scrollFactor="@{scrollFactor}" />
+            app:originalStatusBarColor="@{originalStatusBarColor}"
+            app:scrollFactor="@{scrollFactor}"
+            app:vibrantColor="@{vibrantColor}" />
+
+        <View
+            android:id="@+id/dummy_action_bar"
+            android:layout_width="match_parent"
+            android:layout_height="?android:actionBarSize"
+            android:alpha="@{scrollFactor}"
+            android:background="@{DataBindingFunctions.evaluateColor(scrollFactor, originalStatusBarColor, vibrantColor)}"
+            tools:background="@color/colorPrimary" />
+
+        <ImageView
+            android:id="@+id/image_icon"
+            android:layout_width="@dimen/icon_size_small"
+            android:layout_height="@dimen/icon_size_small"
+            android:layout_alignBottom="@+id/dummy_action_bar"
+            android:layout_alignTop="@+id/dummy_action_bar"
+            android:padding="@dimen/spacing_x2"
+            android:scaleX="@{2f-scrollFactor}"
+            android:scaleY="@{2f-scrollFactor}"
+            android:translationX="@{(int)((1f-scrollFactor) * @dimen/icon_offset_x)}"
+            android:translationY="@{(int)((1f-scrollFactor) * @dimen/icon_offset_y)}"
+            app:loadImage="@{item.file}"
+            app:loadImageTransformation="@{CircleTransform.instance}"
+            app:useFit="@{false}"
+            tools:src="@mipmap/ic_launcher" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/dummy_action_bar"
+            android:layout_alignTop="@+id/dummy_action_bar"
+            android:layout_toEndOf="@+id/image_icon"
+            android:gravity="center_vertical"
+            android:text="@{item.name}"
+            android:textAppearance="?android:textAppearanceLarge"
+            android:textColor="@{DataBindingFunctions.evaluateColor(scrollFactor, @android:color/white, @android:color/black)}"
+            android:textSize="@{(1f-scrollFactor) * @dimen/text_title_large + scrollFactor * @dimen/text_title_small}"
+            android:translationX="@{(int)((1f-scrollFactor) * @dimen/title_offset_x)}"
+            android:translationY="@{(int)((1f-scrollFactor) * @dimen/title_offset_y)}"
+            tools:text="Name" />
     </RelativeLayout>
 </layout>

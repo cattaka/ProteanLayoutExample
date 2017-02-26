@@ -62,6 +62,7 @@ public class CatDetailActivity extends AppCompatActivity {
             Palette.Swatch swatch = palette.getVibrantSwatch();
             if (swatch != null) {
                 mVibrantColor = swatch.getRgb();
+                mBinding.setVibrantColor(mVibrantColor);
             }
         }
     };
@@ -106,6 +107,7 @@ public class CatDetailActivity extends AppCompatActivity {
         mItem = (CatEntry) getIntent().getSerializableExtra("item");
         mBinding.setActivity(this);
         mBinding.setItem(mItem);
+        mBinding.setOriginalStatusBarColor(mOriginalStatusBarColor);
 
         mBinding.layoutContents.scroll.setOnScrollChangeListener(mOnScrollChangeListener);
 

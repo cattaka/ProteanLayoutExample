@@ -9,6 +9,7 @@ import android.widget.ImageView;
 import com.squareup.picasso.Callback;
 import com.squareup.picasso.Picasso;
 import com.squareup.picasso.RequestCreator;
+import com.squareup.picasso.Transformation;
 
 /**
  * Created by cattaka on 17/02/12.
@@ -17,8 +18,8 @@ import com.squareup.picasso.RequestCreator;
 public class DataBindingFunctions {
     private static ArgbEvaluator mArgbEvaluator;
 
-    @BindingAdapter(value = {"loadImage", "useFit", "loadImageListener"}, requireAll = false)
-    public static void loadImage(final ImageView view, String url, boolean useFit, final ILoadImageListener listener) {
+    @BindingAdapter(value = {"loadImage", "useFit", "loadImageTransformation", "loadImageListener"}, requireAll = false)
+    public static void loadImage(final ImageView view, String url, boolean useFit, Transformation transformation, final ILoadImageListener listener) {
         Picasso picasso = Picasso.with(view.getContext());
         if (url == null || url.length() == 0) {
             view.setImageDrawable(null);
@@ -41,6 +42,9 @@ public class DataBindingFunctions {
             RequestCreator requestCreator = picasso.load(url);
             if (useFit) {
                 requestCreator = requestCreator.fit();
+            }
+            if (transformation != null) {
+                requestCreator = requestCreator.transform(transformation);
             }
             requestCreator.into(view, callback);
         }

@@ -8,6 +8,8 @@
 
         <import type="net.cattaka.android.proteanlayoutexample.utils.DataBindingFunctions" />
 
+        <import type="net.cattaka.android.proteanlayoutexample.utils.CircleTransform" />
+
         <variable
             name="activity"
             type="net.cattaka.android.proteanlayoutexample.CatDetailActivity" />
@@ -19,6 +21,14 @@
         <variable
             name="scrollFactor"
             type="float" />
+
+        <variable
+            name="originalStatusBarColor"
+            type="int" />
+
+        <variable
+            name="vibrantColor"
+            type="int" />
     </data>
 
     <android.support.v4.widget.NestedScrollView
@@ -34,7 +44,7 @@
             <FrameLayout
                 android:id="@+id/frame_image"
                 android:layout_width="match_parent"
-                android:layout_height="260dp">
+                android:layout_height="@dimen/cover_image_height">
 
                 <ImageView
                     android:id="@+id/image"
