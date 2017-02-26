@@ -48,7 +48,7 @@
                 android:background="@{DataBindingFunctions.evaluateColor(scrollFactor, @color/bgTab, @color/bgTabSelected)}"
                 android:elevation="@{scrollFactor * @dimen/elevation_tab}"
                 android:gravity="center"
-                android:text="Grid"
+                android:text="Summary"
                 android:textAppearance="?android:textAppearanceMedium"
                 android:textSize="@{(1f-scrollFactor) * @dimen/text_tab_small + scrollFactor * @dimen/text_tab_large}" />
         </LinearLayout>
@@ -69,6 +69,6 @@
             android:layout_marginEnd="@dimen/spacing_x4"
             android:onClick="@{fragment.onClickSearch}"
             android:src="@android:drawable/ic_menu_search"
-            android:translationY="@{(1f-scrollFactor) * (2*buttonSearch.getHeight())}" />
+            android:translationY="@{scrollFactor * (2*buttonSearch.getHeight())}" />
     </RelativeLayout>
 </layout>
