@@ -4,10 +4,10 @@ import android.animation.ArgbEvaluator;
 import android.databinding.BindingAdapter;
 import android.support.annotation.ColorInt;
 import android.support.annotation.NonNull;
-import android.support.constraint.ConstraintLayout;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 
 import com.squareup.picasso.Callback;
 import com.squareup.picasso.Picasso;
@@ -53,11 +53,11 @@ public class DataBindingFunctions {
         }
     }
 
-    @BindingAdapter("setConstraintHorizontalWeight")
-    public static void setConstraintHorizontalWeight(View view, float value) {
+    @BindingAdapter("setLayoutWeight")
+    public static void setLayoutWeight(View view, float value) {
         ViewGroup.LayoutParams params = view.getLayoutParams();
-        if (params instanceof ConstraintLayout.LayoutParams) {
-            ((ConstraintLayout.LayoutParams) params).horizontalWeight = value;
+        if (params instanceof LinearLayout.LayoutParams) {
+            ((LinearLayout.LayoutParams) params).weight = value;
         }
     }
 

@@ -29,7 +29,7 @@
         android:clipToPadding="false"
         android:orientation="vertical">
 
-        <android.support.constraint.ConstraintLayout
+        <LinearLayout
             android:id="@+id/layout_tab"
             android:layout_width="match_parent"
             android:layout_height="@dimen/tab_height"
@@ -39,7 +39,7 @@
             <TextView
                 android:id="@+id/tab_0"
                 android:layout_width="0dp"
-                android:layout_height="0dp"
+                android:layout_height="match_parent"
                 android:background="@{DataBindingFunctions.evaluateColor(position, 0f, @color/bgTab, @color/bgTabSelected)}"
                 android:elevation="@{DataBindingFunctions.evaluateFactor(position, 0f, 0f, @dimen/elevation_tab)}"
                 android:gravity="center"
@@ -50,12 +50,12 @@
                 app:layout_constraintEnd_toStartOf="@+id/tab_1"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:setConstraintHorizontalWeight="@{DataBindingFunctions.evaluateFactor(position, 0f, 3f, 4f)}" />
+                app:setLayoutWeight="@{DataBindingFunctions.evaluateFactor(position, 0f, 3f, 4f)}" />
 
             <TextView
                 android:id="@+id/tab_1"
                 android:layout_width="0dp"
-                android:layout_height="0dp"
+                android:layout_height="match_parent"
                 android:background="@{DataBindingFunctions.evaluateColor(position, 1f, @color/bgTab, @color/bgTabSelected)}"
                 android:elevation="@{DataBindingFunctions.evaluateFactor(position, 1f, 0f, @dimen/elevation_tab)}"
                 android:gravity="center"
@@ -66,12 +66,12 @@
                 app:layout_constraintEnd_toStartOf="@+id/tab_2"
                 app:layout_constraintStart_toEndOf="@+id/tab_0"
                 app:layout_constraintTop_toTopOf="parent"
-                app:setConstraintHorizontalWeight="@{DataBindingFunctions.evaluateFactor(position, 1f, 3f, 4f)}" />
+                app:setLayoutWeight="@{DataBindingFunctions.evaluateFactor(position, 1f, 3f, 4f)}" />
 
             <TextView
                 android:id="@+id/tab_2"
                 android:layout_width="0dp"
-                android:layout_height="0dp"
+                android:layout_height="match_parent"
                 android:background="@{DataBindingFunctions.evaluateColor(position, 2f, @color/bgTab, @color/bgTabSelected)}"
                 android:elevation="@{DataBindingFunctions.evaluateFactor(position, 2f, 0f, @dimen/elevation_tab)}"
                 android:gravity="center"
@@ -82,9 +82,9 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/tab_1"
                 app:layout_constraintTop_toTopOf="parent"
-                app:setConstraintHorizontalWeight="@{DataBindingFunctions.evaluateFactor(position, 2f, 3f, 4f)}" />
+                app:setLayoutWeight="@{DataBindingFunctions.evaluateFactor(position, 2f, 3f, 4f)}" />
 
-        </android.support.constraint.ConstraintLayout>
+        </LinearLayout>
 
         <android.support.v4.view.ViewPager
             android:id="@+id/view_pager"
