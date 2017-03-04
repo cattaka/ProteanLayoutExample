@@ -4,6 +4,7 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 
+import net.cattaka.android.proteanlayoutexample.fragment.CatGridFragment;
 import net.cattaka.android.proteanlayoutexample.fragment.CatListFragment;
 import net.cattaka.android.proteanlayoutexample.fragment.CatSummaryFragment;
 
@@ -22,6 +23,7 @@ public class TopPagerAdapter extends FragmentPagerAdapter {
         mFragmentClasses = new ArrayList<>();
         mFragmentClasses.add(CatListFragment.class);
         mFragmentClasses.add(CatSummaryFragment.class);
+        mFragmentClasses.add(CatGridFragment.class);
     }
 
     @Override

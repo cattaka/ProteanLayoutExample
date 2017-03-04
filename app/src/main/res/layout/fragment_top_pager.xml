@@ -12,11 +12,16 @@
             type="net.cattaka.android.proteanlayoutexample.fragment.TopPagerFragment" />
 
         <variable
-            name="scrollFactor"
+            name="position"
+            type="float" />
+
+        <variable
+            name="fabFactor"
             type="float" />
     </data>
 
     <RelativeLayout
+        android:id="@+id/layout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:clipChildren="false"
@@ -34,23 +39,35 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:background="@{DataBindingFunctions.evaluateColor(scrollFactor, @color/bgTabSelected, @color/bgTab)}"
-                android:elevation="@{(1f-scrollFactor) * @dimen/elevation_tab}"
+                android:background="@{DataBindingFunctions.evaluateColor(position, 0f, @color/bgTabSelected, @color/bgTab)}"
+                android:elevation="@{DataBindingFunctions.evaluateFactor(position, 0f, 0f, @dimen/elevation_tab)}"
                 android:gravity="center"
                 android:text="List"
                 android:textAppearance="?android:textAppearanceMedium"
-                android:textSize="@{(1f-scrollFactor) * @dimen/text_tab_large + scrollFactor * @dimen/text_tab_small}" />
+                android:textSize="@{DataBindingFunctions.evaluateFactor(position, 0f, @dimen/text_tab_small, @dimen/text_tab_large)}" />
 
             <TextView
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:background="@{DataBindingFunctions.evaluateColor(scrollFactor, @color/bgTab, @color/bgTabSelected)}"
-                android:elevation="@{scrollFactor * @dimen/elevation_tab}"
+                android:background="@{DataBindingFunctions.evaluateColor(position, 1f, @color/bgTab, @color/bgTabSelected)}"
+                android:elevation="@{DataBindingFunctions.evaluateFactor(position, 1f, 0f, @dimen/elevation_tab)}"
                 android:gravity="center"
                 android:text="Summary"
                 android:textAppearance="?android:textAppearanceMedium"
-                android:textSize="@{(1f-scrollFactor) * @dimen/text_tab_small + scrollFactor * @dimen/text_tab_large}" />
+                android:textSize="@{DataBindingFunctions.evaluateFactor(position, 1f, @dimen/text_tab_small, @dimen/text_tab_large)}" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@{DataBindingFunctions.evaluateColor(position, 0f, @color/bgTabSelected, @color/bgTab)}"
+                android:elevation="@{DataBindingFunctions.evaluateFactor(position, 2f, 0f, @dimen/elevation_tab)}"
+                android:gravity="center"
+                android:text="Grid"
+                android:textAppearance="?android:textAppearanceMedium"
+                android:textSize="@{DataBindingFunctions.evaluateFactor(position, 2f, @dimen/text_tab_small, @dimen/text_tab_large)}" />
+
         </LinearLayout>
 
         <android.support.v4.view.ViewPager
@@ -69,6 +86,6 @@
             android:layout_marginEnd="@dimen/spacing_x4"
             android:onClick="@{fragment.onClickSearch}"
             android:src="@android:drawable/ic_menu_search"
-            android:translationY="@{scrollFactor * (2*buttonSearch.getHeight())}" />
+            android:translationY="@{fabFactor * (layout.getHeight() - buttonSearch.getTop())}" />
     </RelativeLayout>
 </layout>

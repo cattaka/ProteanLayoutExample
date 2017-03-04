@@ -21,8 +21,9 @@ public class TopPagerFragment extends Fragment {
     ViewPager.OnPageChangeListener mOnPageChangeListener = new ViewPager.OnPageChangeListener() {
         @Override
         public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
-            float factor = (position == 0) ? positionOffset : 1;
-            mBinding.setScrollFactor(factor);
+            float fabFactor = (position == 0) ? positionOffset : 1;
+            mBinding.setFabFactor(fabFactor);
+            mBinding.setPosition(position + positionOffset);
         }
 
         @Override

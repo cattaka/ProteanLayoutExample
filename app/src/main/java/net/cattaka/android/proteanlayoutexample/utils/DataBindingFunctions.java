@@ -50,6 +50,34 @@ public class DataBindingFunctions {
         }
     }
 
+    public static float evaluateFactor(float position, float basePosition) {
+        float factor = 1f - Math.abs(basePosition - position);
+        if (factor < 0) {
+            factor = 0;
+        } else if (factor > 1) {
+            factor = 1;
+        }
+        return factor;
+    }
+
+    public static float evaluateFactor(float position, float basePosition, float minValue, float maxValue) {
+        float factor = 1f - Math.abs(basePosition - position);
+        if (factor < 0) {
+            factor = 0;
+        } else if (factor > 1) {
+            factor = 1;
+        }
+        return ((1f - factor) * minValue + factor * maxValue);
+    }
+
+    public static int evaluateColor(float position, float basePosition, @ColorInt int startValue, @ColorInt int endValue) {
+        if (mArgbEvaluator == null) {
+            mArgbEvaluator = new ArgbEvaluator();
+        }
+        float fraction = evaluateFactor(position, basePosition);
+        return (Integer) mArgbEvaluator.evaluate(fraction, startValue, endValue);
+    }
+
     public static int evaluateColor(float fraction, @ColorInt int startValue, @ColorInt int endValue) {
         if (mArgbEvaluator == null) {
             mArgbEvaluator = new ArgbEvaluator();
