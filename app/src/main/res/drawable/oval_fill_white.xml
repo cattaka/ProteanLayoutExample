@@ -8,8 +8,7 @@
     <shape
         android:shape="oval">
         <solid
-            android:color="@android:color/white"
-            />
+            android:color="@android:color/white" />
 
     </shape>
 </inset>

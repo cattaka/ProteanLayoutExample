@@ -67,7 +67,8 @@ public class CatDetailActivity extends AppCompatActivity {
     NestedScrollView.OnScrollChangeListener mOnScrollChangeListener = new NestedScrollView.OnScrollChangeListener() {
         @Override
         public void onScrollChange(NestedScrollView v, int scrollX, int scrollY, int oldScrollX, int oldScrollY) {
-            float factor = (float) scrollY / (float) mBinding.layoutContents.image.getHeight();
+            int h = mBinding.layoutContents.image.getHeight() - mBinding.dummyActionBar.getHeight();
+            float factor = (h > 0) ? (float) scrollY / h : 0f;
             if (factor < 0f) {
                 factor = 0f;
             } else if (factor > 1f) {
