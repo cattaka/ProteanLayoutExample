@@ -14,9 +14,9 @@ import android.view.ViewGroup;
 
 import net.cattaka.android.adaptertoolbox.adapter.ScrambleAdapter;
 import net.cattaka.android.adaptertoolbox.adapter.listener.ListenerRelay;
-import net.cattaka.android.proteanlayoutexample.CatDetailActivity;
 import net.cattaka.android.proteanlayoutexample.R;
 import net.cattaka.android.proteanlayoutexample.adapter.factory.CatEntryGridViewHolderFactory;
+import net.cattaka.android.proteanlayoutexample.core.IShowDetail;
 import net.cattaka.android.proteanlayoutexample.data.CatEntry;
 import net.cattaka.android.proteanlayoutexample.databinding.FragmentCatGridBinding;
 import net.cattaka.android.proteanlayoutexample.repo.Repository;
@@ -82,6 +82,6 @@ public class CatGridFragment extends Fragment {
     }
 
     private void showDetail(@NonNull CatEntry item) {
-        startActivity(CatDetailActivity.createIntent(getContext(), item));
+        ((IShowDetail)getActivity()).showDetail(item);
     }
 }

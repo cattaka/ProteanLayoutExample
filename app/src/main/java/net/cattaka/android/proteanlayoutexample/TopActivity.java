@@ -1,11 +1,14 @@
 package net.cattaka.android.proteanlayoutexample;
 
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 
+import net.cattaka.android.proteanlayoutexample.core.IShowDetail;
+import net.cattaka.android.proteanlayoutexample.data.CatEntry;
 import net.cattaka.android.proteanlayoutexample.fragment.TopPagerFragment;
 
-public class TopActivity extends AppCompatActivity {
+public class TopActivity extends AppCompatActivity implements IShowDetail {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,5 +25,10 @@ public class TopActivity extends AppCompatActivity {
                     .add(R.id.frame_primary, new TopPagerFragment(), null)
                     .commit();
         }
+    }
+
+    @Override
+    public void showDetail(@NonNull CatEntry entry) {
+        startActivity(CatDetailActivity.createIntent(this, entry));
     }
 }

@@ -16,6 +16,7 @@ import net.cattaka.android.adaptertoolbox.adapter.listener.ListenerRelay;
 import net.cattaka.android.proteanlayoutexample.CatDetailActivity;
 import net.cattaka.android.proteanlayoutexample.R;
 import net.cattaka.android.proteanlayoutexample.adapter.factory.CatEntryListViewHolderFactory;
+import net.cattaka.android.proteanlayoutexample.core.IShowDetail;
 import net.cattaka.android.proteanlayoutexample.data.CatEntry;
 import net.cattaka.android.proteanlayoutexample.databinding.FragmentCatListBinding;
 import net.cattaka.android.proteanlayoutexample.repo.Repository;
@@ -81,6 +82,6 @@ public class CatListFragment extends Fragment {
     }
 
     private void showDetail(@NonNull CatEntry item) {
-        startActivity(CatDetailActivity.createIntent(getContext(), item));
+        ((IShowDetail)getActivity()).showDetail(item);
     }
 }
