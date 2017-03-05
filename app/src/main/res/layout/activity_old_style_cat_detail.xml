@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="net.cattaka.android.proteanlayoutexample.CatDetailActivity">
+
+    <data>
+
+        <import type="net.cattaka.android.proteanlayoutexample.utils.DataBindingFunctions" />
+
+        <import type="net.cattaka.android.proteanlayoutexample.utils.CircleTransform" />
+
+        <variable
+            name="activity"
+            type="net.cattaka.android.proteanlayoutexample.steps.OldStyleCatDetailActivity" />
+
+        <variable
+            name="item"
+            type="net.cattaka.android.proteanlayoutexample.data.CatEntry" />
+
+        <variable
+            name="vibrantColor"
+            type="int" />
+    </data>
+
+    <android.support.design.widget.CoordinatorLayout
+        android:id="@+id/layout_coordinator"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <android.support.design.widget.AppBarLayout
+            android:id="@+id/layout_app_bar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <android.support.design.widget.CollapsingToolbarLayout
+                android:id="@+id/layout_collapsing_toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:contentScrim="@{vibrantColor}"
+                app:expandedTitleTextAppearance="?android:textAppearanceLarge"
+                app:layout_scrollFlags="scroll|exitUntilCollapsed"
+                app:statusBarScrim="@{vibrantColor}"
+                app:titleEnabled="false">
+
+                <android.support.constraint.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:layout_collapseMode="parallax">
+
+                    <ImageView
+                        android:id="@+id/image"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/cover_image_height"
+                        android:scaleType="centerCrop"
+                        app:loadImage="@{item.file}"
+                        app:loadImageListener="@{activity.loadImageListener}"
+                        app:useFit="@{false}"
+                        tools:src="@drawable/dummy_image" />
+
+                    <ImageView
+                        android:id="@+id/image_icon"
+                        android:layout_width="?android:actionBarSize"
+                        android:layout_height="?android:actionBarSize"
+                        android:layout_marginStart="@dimen/icon_offset_x"
+                        android:layout_marginTop="@dimen/icon_offset_y"
+                        android:background="@drawable/oval_fill_white"
+                        android:padding="4dp"
+                        android:scaleType="centerCrop"
+                        android:scaleX="2"
+                        android:scaleY="2"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:loadImage="@{item.file}"
+                        app:loadImageTransformation="@{CircleTransform.instance}"
+                        app:useFit="@{false}"
+                        tools:src="@drawable/dummy_icon" />
+
+                    <TextView
+                        android:id="@+id/text_name"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/spacing_x4"
+                        android:text="@{item.name}"
+                        android:textAppearance="?android:textAppearanceLarge"
+                        android:textColor="@android:color/white"
+                        android:textSize="@dimen/text_title_large"
+                        app:layout_constraintBottom_toBottomOf="@+id/image_icon"
+                        app:layout_constraintStart_toEndOf="@id/image_icon"
+                        app:layout_constraintTop_toTopOf="@+id/image_icon"
+                        tools:text="Name" />
+
+                    <TextView
+                        android:id="@+id/text_color"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/spacing_x4"
+                        android:layout_marginTop="@dimen/spacing_x2"
+                        android:text="Color"
+                        android:textAppearance="?android:textAppearanceLarge"
+                        android:textColor="@android:color/white"
+                        android:textSize="@dimen/text_title_large"
+                        app:layout_constraintStart_toEndOf="@id/image_icon"
+                        app:layout_constraintTop_toBottomOf="@+id/text_name" />
+
+                    <TextView
+                        android:id="@+id/text_hair"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/spacing_x4"
+                        android:layout_marginTop="@dimen/spacing_x2"
+                        android:text="@{item.hair}"
+                        android:textAppearance="?android:textAppearanceLarge"
+                        android:textColor="@android:color/white"
+                        android:textSize="@dimen/text_title_large"
+                        app:layout_constraintStart_toEndOf="@id/image_icon"
+                        app:layout_constraintTop_toBottomOf="@+id/text_color"
+                        tools:text="Hair" />
+
+                </android.support.constraint.ConstraintLayout>
+
+                <android.support.v7.widget.Toolbar
+                    android:id="@+id/toolbar"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:layout_collapseMode="pin"
+                    app:title="@{item.name}" />
+            </android.support.design.widget.CollapsingToolbarLayout>
+        </android.support.design.widget.AppBarLayout>
+
+        <include
+            android:id="@+id/layout_contents"
+            layout="@layout/activity_old_style_cat_detail_scroll"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:activity="@{activity}"
+            app:item="@{item}"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </android.support.design.widget.CoordinatorLayout>
+</layout>

@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="net.cattaka.android.proteanlayoutexample.utils.DataBindingFunctions" />
+
+        <import type="net.cattaka.android.proteanlayoutexample.utils.CircleTransform" />
+
+        <variable
+            name="activity"
+            type="net.cattaka.android.proteanlayoutexample.steps.OldStyleCatDetailActivity" />
+
+        <variable
+            name="item"
+            type="net.cattaka.android.proteanlayoutexample.data.CatEntry" />
+    </data>
+
+    <android.support.v4.widget.NestedScrollView
+        android:id="@+id/scroll"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                style="@style/TextLabel"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="When"
+                android:textAppearance="?android:textAppearanceMedium" />
+
+            <TextView
+                style="@style/TextValue"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@{item.when}"
+                tools:text="2002年ごろ" />
+
+            <TextView
+                style="@style/TextLabel"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Where"
+                android:textAppearance="?android:textAppearanceMedium" />
+
+            <TextView
+                style="@style/TextValue"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@{item.where}"
+                tools:text="香川" />
+
+            <TextView
+                style="@style/TextLabel"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Hair"
+                android:textAppearance="?android:textAppearanceMedium" />
+
+            <TextView
+                style="@style/TextValue"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@{item.hair}"
+                tools:text="長毛種" />
+
+            <TextView
+                style="@style/TextLabel"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Color"
+                android:textAppearance="?android:textAppearanceMedium" />
+
+            <TextView
+                style="@style/TextValue"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@{item.color}"
+                tools:text="チャシロ" />
+
+            <TextView
+                style="@style/TextLabel"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Same color"
+                android:textAppearance="?android:textAppearanceMedium" />
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/recycler_color"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:nestedScrollingEnabled="false"
+                android:padding="@dimen/spacing_x1" />
+
+            <TextView
+                style="@style/TextLabel"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Same hair"
+                android:textAppearance="?android:textAppearanceMedium" />
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/recycler_hair"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:nestedScrollingEnabled="false"
+                android:padding="@dimen/spacing_x1" />
+
+        </LinearLayout>
+    </android.support.v4.widget.NestedScrollView>
+</layout>

@@ -30,6 +30,6 @@ public class OldStyleTopActivity extends AppCompatActivity implements IShowDetai
 
     @Override
     public void showDetail(@NonNull CatEntry entry) {
-        startActivity(CatDetailActivity.createIntent(this, entry));
+        startActivity(OldStyleCatDetailActivity.createIntent(this, entry));
     }
 }
