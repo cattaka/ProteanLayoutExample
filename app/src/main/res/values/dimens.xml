@@ -17,7 +17,7 @@
     <dimen name="icon_size">72dp</dimen>
     <dimen name="icon_size_small">56dp</dimen>
     <dimen name="icon_offset_x">48dp</dimen>
-    <dimen name="icon_offset_y">64dp</dimen>
+    <dimen name="icon_offset_y">72dp</dimen>
     <dimen name="title_offset_x">-8dp</dimen>
     <dimen name="title_offset_y">120dp</dimen>
 

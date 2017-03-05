@@ -66,9 +66,10 @@
 
         <ImageView
             android:id="@+id/image_icon"
-            android:layout_width="@dimen/icon_size"
-            android:layout_height="@dimen/icon_size"
-            android:padding="@dimen/spacing_x2"
+            android:layout_width="?android:actionBarSize"
+            android:layout_height="?android:actionBarSize"
+            android:background="@drawable/oval_fill_white"
+            android:padding="4dp"
             android:scaleX="@{2f-scrollFactor}"
             android:scaleY="@{2f-scrollFactor}"
             app:layout_constraintBottom_toBottomOf="@+id/dummy_action_bar"
@@ -79,11 +80,12 @@
             app:setLayoutMarginStart="@{(int)((1f-scrollFactor) * @dimen/icon_offset_x)}"
             app:setLayoutMarginTop="@{(int)((1f-scrollFactor) * @dimen/icon_offset_y)}"
             app:useFit="@{false}"
-            tools:layout_marginStart="@dimen/icon_offset_y"
-            tools:layout_marginTop="@dimen/icon_offset_x"
+            tools:layout_marginStart="@dimen/icon_offset_x"
+            tools:layout_marginTop="@dimen/icon_offset_y"
             tools:src="@mipmap/ic_launcher" />
 
         <TextView
+            android:id="@+id/text_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@{item.name}"
@@ -95,5 +97,35 @@
             app:layout_constraintTop_toTopOf="@+id/image_icon"
             app:setLayoutMarginStart="@{(int)((1f-scrollFactor) * @dimen/icon_size / 2)}"
             tools:text="Name" />
+
+        <TextView
+            android:id="@+id/text_color"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/spacing_x2"
+            android:alpha="@{1f-scrollFactor}"
+            android:text="@{item.color}"
+            android:textAppearance="?android:textAppearanceLarge"
+            android:textColor="@{DataBindingFunctions.evaluateColor(scrollFactor, @android:color/white, @android:color/black)}"
+            android:textSize="@{(1f-scrollFactor) * @dimen/text_title_large + scrollFactor * @dimen/text_title_small}"
+            app:layout_constraintStart_toEndOf="@id/image_icon"
+            app:layout_constraintTop_toBottomOf="@+id/text_name"
+            app:setLayoutMarginStart="@{(int)((1f-scrollFactor) * @dimen/icon_size / 2)}"
+            tools:text="Color" />
+
+        <TextView
+            android:id="@+id/text_hair"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/spacing_x2"
+            android:alpha="@{1f-scrollFactor}"
+            android:text="@{item.hair}"
+            android:textAppearance="?android:textAppearanceLarge"
+            android:textColor="@{DataBindingFunctions.evaluateColor(scrollFactor, @android:color/white, @android:color/black)}"
+            android:textSize="@{(1f-scrollFactor) * @dimen/text_title_large + scrollFactor * @dimen/text_title_small}"
+            app:layout_constraintStart_toEndOf="@id/image_icon"
+            app:layout_constraintTop_toBottomOf="@+id/text_color"
+            app:setLayoutMarginStart="@{(int)((1f-scrollFactor) * @dimen/icon_size / 2)}"
+            tools:text="Hair" />
     </android.support.constraint.ConstraintLayout>
 </layout>
