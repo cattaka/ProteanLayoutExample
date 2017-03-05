@@ -17,6 +17,7 @@
         </activity>
         <activity android:name=".TopActivity" />
         <activity android:name=".CatDetailActivity" />
+        <activity android:name=".steps.OldStyleTopActivity" />
     </application>
 
 </manifest>

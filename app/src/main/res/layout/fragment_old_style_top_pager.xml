@@ -10,14 +10,10 @@
 
         <variable
             name="fragment"
-            type="net.cattaka.android.proteanlayoutexample.fragment.TopPagerFragment" />
+            type="net.cattaka.android.proteanlayoutexample.steps.OldStyleTopPagerFragment" />
 
         <variable
             name="position"
-            type="float" />
-
-        <variable
-            name="fabFactor"
             type="float" />
     </data>
 
@@ -42,7 +38,6 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:background="@{DataBindingFunctions.evaluateColor(position, 0f, @color/bgTab, @color/bgTabSelected)}"
-                android:elevation="@{DataBindingFunctions.evaluateFactor(position, 0f, 0f, @dimen/elevation_tab)}"
                 android:gravity="center"
                 android:text="List"
                 android:textAppearance="?android:textAppearanceMedium"
@@ -59,7 +54,6 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:background="@{DataBindingFunctions.evaluateColor(position, 1f, @color/bgTab, @color/bgTabSelected)}"
-                android:elevation="@{DataBindingFunctions.evaluateFactor(position, 1f, 0f, @dimen/elevation_tab)}"
                 android:gravity="center"
                 android:text="Summary"
                 android:textAppearance="?android:textAppearanceMedium"
@@ -76,7 +70,6 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:background="@{DataBindingFunctions.evaluateColor(position, 2f, @color/bgTab, @color/bgTabSelected)}"
-                android:elevation="@{DataBindingFunctions.evaluateFactor(position, 2f, 0f, @dimen/elevation_tab)}"
                 android:gravity="center"
                 android:text="Grid"
                 android:textAppearance="?android:textAppearanceMedium"
@@ -104,7 +97,6 @@
             android:layout_marginBottom="@dimen/spacing_x4"
             android:layout_marginEnd="@dimen/spacing_x4"
             android:onClick="@{fragment.onClickSearch}"
-            android:src="@android:drawable/ic_menu_search"
-            android:translationY="@{fabFactor * (layout.getHeight() - buttonSearch.getTop())}" />
+            android:src="@android:drawable/ic_menu_search" />
     </RelativeLayout>
 </layout>

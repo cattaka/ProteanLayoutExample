@@ -14,13 +14,15 @@ import net.cattaka.android.adaptertoolbox.adapter.listener.ListenerRelay;
 import net.cattaka.android.proteanlayoutexample.adapter.ActivityEntryAdapter;
 import net.cattaka.android.proteanlayoutexample.data.ActivityEntry;
 import net.cattaka.android.proteanlayoutexample.databinding.ActivityMainBinding;
+import net.cattaka.android.proteanlayoutexample.steps.OldStyleTopActivity;
 
 import java.util.Arrays;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
     private static final List<ActivityEntry> ACTIVITY_ENTRIES = Arrays.asList(
-            new ActivityEntry("完成形", TopActivity.class)
+            new ActivityEntry("完成形", TopActivity.class),
+            new ActivityEntry("OldStyle", OldStyleTopActivity.class)
     );
 
     ListenerRelay<ActivityEntryAdapter, ActivityEntryAdapter.ViewHolder> mListenerRelay = new ListenerRelay<ActivityEntryAdapter, ActivityEntryAdapter.ViewHolder>() {
