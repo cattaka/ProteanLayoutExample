@@ -32,7 +32,7 @@
             type="int" />
     </data>
 
-    <RelativeLayout
+    <android.support.constraint.ConstraintLayout
         android:id="@+id/activity_main"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
@@ -40,49 +40,60 @@
         <include
             android:id="@+id/layout_contents"
             layout="@layout/activity_cat_detail_scroll"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
             app:activity="@{activity}"
             app:item="@{item}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
             app:originalStatusBarColor="@{originalStatusBarColor}"
             app:scrollFactor="@{scrollFactor}"
             app:vibrantColor="@{vibrantColor}" />
 
         <View
             android:id="@+id/dummy_action_bar"
-            android:layout_width="match_parent"
+            android:layout_width="0dp"
             android:layout_height="?android:actionBarSize"
             android:alpha="@{scrollFactor}"
             android:background="@{DataBindingFunctions.evaluateColor(scrollFactor, originalStatusBarColor, vibrantColor)}"
-            tools:background="@color/colorPrimary" />
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:background="@color/colorPrimary"
+            tools:layout_editor_absoluteX="8dp" />
 
         <ImageView
             android:id="@+id/image_icon"
-            android:layout_width="@dimen/icon_size_small"
-            android:layout_height="@dimen/icon_size_small"
-            android:layout_alignBottom="@+id/dummy_action_bar"
-            android:layout_alignTop="@+id/dummy_action_bar"
+            android:layout_width="@dimen/icon_size"
+            android:layout_height="@dimen/icon_size"
             android:padding="@dimen/spacing_x2"
             android:scaleX="@{2f-scrollFactor}"
             android:scaleY="@{2f-scrollFactor}"
-            android:translationX="@{(int)((1f-scrollFactor) * @dimen/icon_offset_x)}"
-            android:translationY="@{(int)((1f-scrollFactor) * @dimen/icon_offset_y)}"
+            app:layout_constraintBottom_toBottomOf="@+id/dummy_action_bar"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/dummy_action_bar"
             app:loadImage="@{item.file}"
             app:loadImageTransformation="@{CircleTransform.instance}"
+            app:setLayoutMarginStart="@{(int)((1f-scrollFactor) * @dimen/icon_offset_x)}"
+            app:setLayoutMarginTop="@{(int)((1f-scrollFactor) * @dimen/icon_offset_y)}"
             app:useFit="@{false}"
+            tools:layout_marginStart="@dimen/icon_offset_y"
+            tools:layout_marginTop="@dimen/icon_offset_x"
             tools:src="@mipmap/ic_launcher" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignBottom="@+id/dummy_action_bar"
-            android:layout_alignTop="@+id/dummy_action_bar"
-            android:layout_toEndOf="@+id/image_icon"
-            android:gravity="center_vertical"
             android:text="@{item.name}"
             android:textAppearance="?android:textAppearanceLarge"
             android:textColor="@{DataBindingFunctions.evaluateColor(scrollFactor, @android:color/white, @android:color/black)}"
             android:textSize="@{(1f-scrollFactor) * @dimen/text_title_large + scrollFactor * @dimen/text_title_small}"
-            android:translationX="@{(int)((1f-scrollFactor) * @dimen/title_offset_x)}"
-            android:translationY="@{(int)((1f-scrollFactor) * @dimen/title_offset_y)}"
+            app:layout_constraintBottom_toBottomOf="@+id/image_icon"
+            app:layout_constraintStart_toEndOf="@id/image_icon"
+            app:layout_constraintTop_toTopOf="@+id/image_icon"
+            app:setLayoutMarginStart="@{(int)((1f-scrollFactor) * @dimen/icon_size / 2)}"
             tools:text="Name" />
-    </RelativeLayout>
+    </android.support.constraint.ConstraintLayout>
 </layout>

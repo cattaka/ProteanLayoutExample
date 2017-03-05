@@ -58,6 +58,43 @@ public class DataBindingFunctions {
         ViewGroup.LayoutParams params = view.getLayoutParams();
         if (params instanceof LinearLayout.LayoutParams) {
             ((LinearLayout.LayoutParams) params).weight = value;
+            view.setLayoutParams(params);
+        }
+    }
+
+    @BindingAdapter("setLayoutMarginTop")
+    public static void setLayoutMarginTop(View view, int value) {
+        ViewGroup.LayoutParams params = view.getLayoutParams();
+        if (params instanceof ViewGroup.MarginLayoutParams) {
+            ((ViewGroup.MarginLayoutParams) params).topMargin = value;
+            view.setLayoutParams(params);
+        }
+    }
+
+    @BindingAdapter("setLayoutMarginStart")
+    public static void setLayoutMarginStart(View view, int value) {
+        ViewGroup.LayoutParams params = view.getLayoutParams();
+        if (params instanceof ViewGroup.MarginLayoutParams) {
+            ((ViewGroup.MarginLayoutParams) params).setMarginStart(value);
+            view.setLayoutParams(params);
+        }
+    }
+
+    @BindingAdapter("setLayoutMarginEnd")
+    public static void setLayoutMarginEnd(View view, int value) {
+        ViewGroup.LayoutParams params = view.getLayoutParams();
+        if (params instanceof ViewGroup.MarginLayoutParams) {
+            ((ViewGroup.MarginLayoutParams) params).setMarginEnd(value);
+            view.setLayoutParams(params);
+        }
+    }
+
+    @BindingAdapter("setLayoutMarginBottom")
+    public static void setLayoutMarginBottom(View view, int value) {
+        ViewGroup.LayoutParams params = view.getLayoutParams();
+        if (params instanceof ViewGroup.MarginLayoutParams) {
+            ((ViewGroup.MarginLayoutParams) params).bottomMargin = value;
+            view.setLayoutParams(params);
         }
     }
 
