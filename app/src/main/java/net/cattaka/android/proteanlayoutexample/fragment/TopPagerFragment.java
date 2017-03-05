@@ -20,10 +20,15 @@ import net.cattaka.android.proteanlayoutexample.databinding.FragmentTopPagerBind
 public class TopPagerFragment extends Fragment {
     ViewPager.OnPageChangeListener mOnPageChangeListener = new ViewPager.OnPageChangeListener() {
         @Override
-        public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+        public void onPageScrolled(
+                int position,  // 0,1,2などのページ番号
+                float positionOffset,  // 0.0〜1.0の範囲のオフセット
+                int positionOffsetPixels
+        ) {
+            float absolutePosition = position + positionOffset;
             float fabFactor = (position == 0) ? positionOffset : 1;
             mBinding.setFabFactor(fabFactor);
-            mBinding.setPosition(position + positionOffset);
+            mBinding.setPosition(absolutePosition);
         }
 
         @Override
