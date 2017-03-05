@@ -59,11 +59,8 @@ public class CatDetailActivity extends AppCompatActivity {
     Palette.PaletteAsyncListener mPaletteAsyncListener = new Palette.PaletteAsyncListener() {
         @Override
         public void onGenerated(Palette palette) {
-            Palette.Swatch swatch = palette.getVibrantSwatch();
-            if (swatch != null) {
-                mVibrantColor = swatch.getRgb();
-                mBinding.setVibrantColor(mVibrantColor);
-            }
+            mVibrantColor = palette.getVibrantColor(0xFF000000 | getResources().getColor(R.color.statusBarDetail));
+            mBinding.setVibrantColor(mVibrantColor);
         }
     };
 
