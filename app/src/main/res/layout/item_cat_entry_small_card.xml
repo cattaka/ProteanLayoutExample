@@ -29,6 +29,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="160dp"
                 android:adjustViewBounds="true"
+                android:scaleType="centerCrop"
                 app:loadImage="@{item.file}"
                 app:useFit="@{true}"
                 tools:src="@mipmap/ic_launcher" />

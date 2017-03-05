@@ -70,6 +70,7 @@
             android:layout_height="?android:actionBarSize"
             android:background="@drawable/oval_fill_white"
             android:padding="4dp"
+            android:scaleType="centerCrop"
             android:scaleX="@{2f-scrollFactor}"
             android:scaleY="@{2f-scrollFactor}"
             app:layout_constraintBottom_toBottomOf="@+id/dummy_action_bar"

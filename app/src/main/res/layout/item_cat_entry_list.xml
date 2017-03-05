@@ -8,6 +8,8 @@
 
         <import type="net.cattaka.android.proteanlayoutexample.utils.DataBindingFunctions" />
 
+        <import type="net.cattaka.android.proteanlayoutexample.utils.CircleTransform" />
+
         <variable
             name="item"
             type="net.cattaka.android.proteanlayoutexample.data.CatEntry" />
@@ -24,7 +26,9 @@
             android:layout_height="@dimen/icon_size"
             android:layout_margin="@dimen/spacing_x1"
             android:elevation="2dp"
+            android:scaleType="centerCrop"
             app:loadImage="@{item.file}"
+            app:loadImageTransformation="@{CircleTransform.instance}"
             app:useFit="@{true}"
             tools:src="@mipmap/ic_launcher" />
 
