@@ -61,6 +61,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
+            tools:alpha="0"
             tools:background="@color/colorPrimary"
             tools:layout_editor_absoluteX="8dp" />
 
@@ -83,7 +84,9 @@
             app:useFit="@{false}"
             tools:layout_marginStart="@dimen/icon_offset_x"
             tools:layout_marginTop="@dimen/icon_offset_y"
-            tools:src="@mipmap/ic_launcher" />
+            tools:scaleX="2"
+            tools:scaleY="2"
+            tools:src="@drawable/dummy_icon" />
 
         <TextView
             android:id="@+id/text_name"
@@ -96,8 +99,11 @@
             app:layout_constraintBottom_toBottomOf="@+id/image_icon"
             app:layout_constraintStart_toEndOf="@id/image_icon"
             app:layout_constraintTop_toTopOf="@+id/image_icon"
-            app:setLayoutMarginStart="@{(int)((1f-scrollFactor) * @dimen/icon_size / 2)}"
-            tools:text="Name" />
+            app:setLayoutMarginStart="@{(int)((1f-scrollFactor) * @dimen/spacing_x4)}"
+            tools:layout_marginStart="@dimen/spacing_x4"
+            tools:text="Name"
+            tools:textColor="@android:color/white"
+            tools:textSize="@dimen/text_title_large" />
 
         <TextView
             android:id="@+id/text_color"
@@ -111,8 +117,11 @@
             android:textSize="@{(1f-scrollFactor) * @dimen/text_title_large + scrollFactor * @dimen/text_title_small}"
             app:layout_constraintStart_toEndOf="@id/image_icon"
             app:layout_constraintTop_toBottomOf="@+id/text_name"
-            app:setLayoutMarginStart="@{(int)((1f-scrollFactor) * @dimen/icon_size / 2)}"
-            tools:text="Color" />
+            app:setLayoutMarginStart="@{(int)((1f-scrollFactor) * @dimen/spacing_x4)}"
+            tools:layout_marginStart="@dimen/spacing_x4"
+            tools:text="Color"
+            tools:textColor="@android:color/white"
+            tools:textSize="@dimen/text_title_large" />
 
         <TextView
             android:id="@+id/text_hair"
@@ -126,7 +135,10 @@
             android:textSize="@{(1f-scrollFactor) * @dimen/text_title_large + scrollFactor * @dimen/text_title_small}"
             app:layout_constraintStart_toEndOf="@id/image_icon"
             app:layout_constraintTop_toBottomOf="@+id/text_color"
-            app:setLayoutMarginStart="@{(int)((1f-scrollFactor) * @dimen/icon_size / 2)}"
-            tools:text="Hair" />
+            app:setLayoutMarginStart="@{(int)((1f-scrollFactor) * @dimen/spacing_x4)}"
+            tools:layout_marginStart="@dimen/spacing_x4"
+            tools:text="Hair"
+            tools:textColor="@android:color/white"
+            tools:textSize="@dimen/text_title_large" />
     </android.support.constraint.ConstraintLayout>
 </layout>

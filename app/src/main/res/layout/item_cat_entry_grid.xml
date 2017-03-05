@@ -28,7 +28,7 @@
             android:scaleType="centerCrop"
             app:loadImage="@{item.file}"
             app:useFit="@{true}"
-            tools:src="@mipmap/ic_launcher" />
+            tools:src="@drawable/dummy_image" />
 
         <TextView
             android:layout_width="wrap_content"

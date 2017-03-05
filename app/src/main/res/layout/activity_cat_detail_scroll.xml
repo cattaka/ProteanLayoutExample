@@ -55,7 +55,7 @@
                     app:loadImage="@{item.file}"
                     app:loadImageListener="@{activity.loadImageListener}"
                     app:useFit="@{false}"
-                    tools:src="@mipmap/ic_launcher" />
+                    tools:src="@drawable/dummy_image" />
             </FrameLayout>
 
             <TextView
