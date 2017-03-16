@@ -62,6 +62,15 @@ public class DataBindingFunctions {
         }
     }
 
+    @BindingAdapter("setLayoutMargin")
+    public static void setLayoutMargin(View view, int value) {
+        ViewGroup.LayoutParams params = view.getLayoutParams();
+        if (params instanceof ViewGroup.MarginLayoutParams) {
+            ((ViewGroup.MarginLayoutParams) params).setMargins(value, value, value, value);
+            view.setLayoutParams(params);
+        }
+    }
+
     @BindingAdapter("setLayoutMarginTop")
     public static void setLayoutMarginTop(View view, int value) {
         ViewGroup.LayoutParams params = view.getLayoutParams();

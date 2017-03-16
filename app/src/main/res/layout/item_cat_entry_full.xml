@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="net.cattaka.android.proteanlayoutexample.CatDetailActivity">
+
+    <data>
+
+        <import type="net.cattaka.android.proteanlayoutexample.utils.DataBindingFunctions" />
+
+        <import type="net.cattaka.android.proteanlayoutexample.utils.CircleTransform" />
+
+        <variable
+            name="item"
+            type="net.cattaka.android.proteanlayoutexample.data.CatEntry" />
+
+        <variable
+            name="originalStatusBarColor"
+            type="int" />
+
+        <variable
+            name="vibrantColor"
+            type="int" />
+
+        <variable
+            name="sizeFactor"
+            type="float" />
+
+        <variable
+            name="offsetFactor"
+            type="float" />
+
+        <variable
+            name="scrollFactor"
+            type="float" />
+    </data>
+
+    <android.support.constraint.ConstraintLayout
+        android:id="@+id/layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:translationY="@{(int)(-offsetFactor * 3f * @dimen/spacing_x6)}"
+        app:setLayoutMarginStart="@{(int)(sizeFactor * @dimen/spacing_x6)}"
+        app:setLayoutMarginEnd="@{(int)(sizeFactor * @dimen/spacing_x6)}">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="centerCrop"
+            app:loadImage="@{item.file}"
+            tools:src="@drawable/dummy_image" />
+
+        <ImageView
+            android:id="@+id/image_icon"
+            android:layout_width="?android:actionBarSize"
+            android:layout_height="?android:actionBarSize"
+            android:background="@drawable/oval_fill_white"
+            android:padding="4dp"
+            android:scaleType="centerCrop"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:loadImage="@{item.file}"
+            app:loadImageTransformation="@{CircleTransform.instance}"
+            app:setLayoutMarginTop="@{(int)((1f - scrollFactor) * layout.getHeight() / 2f)}"
+            app:useFit="@{false}"
+            tools:src="@drawable/dummy_icon" />
+
+        <TextView
+            android:id="@+id/text_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/spacing_x4"
+            android:text="@{item.name}"
+            android:textAppearance="?android:textAppearanceLarge"
+            android:textColor="@android:color/white"
+            android:textSize="@dimen/text_title_large"
+            app:layout_constraintBottom_toBottomOf="@+id/image_icon"
+            app:layout_constraintStart_toEndOf="@id/image_icon"
+            app:layout_constraintTop_toTopOf="@+id/image_icon"
+            tools:text="Name" />
+
+        <TextView
+            android:id="@+id/text_color"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/spacing_x4"
+            android:text="@{item.color}"
+            android:textAppearance="?android:textAppearanceLarge"
+            android:textColor="@android:color/white"
+            android:textSize="@dimen/text_title_large"
+            app:layout_constraintStart_toEndOf="@id/image_icon"
+            app:layout_constraintTop_toBottomOf="@+id/text_name"
+            tools:text="Color" />
+
+        <TextView
+            android:id="@+id/text_hair"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/spacing_x4"
+            android:text="@{item.hair}"
+            android:textAppearance="?android:textAppearanceLarge"
+            android:textColor="@android:color/white"
+            android:textSize="@dimen/text_title_large"
+            app:layout_constraintStart_toEndOf="@id/image_icon"
+            app:layout_constraintTop_toBottomOf="@+id/text_color"
+            tools:text="Hair" />
+    </android.support.constraint.ConstraintLayout>
+</layout>
